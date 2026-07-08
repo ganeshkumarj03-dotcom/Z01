@@ -5152,35 +5152,165 @@ function App() {
             </div>
           </div>
 
-          {/* HERO GRAPHIC: CALENDAR PANEL */}
+          {/* HERO GRAPHIC: STUDIO DASHBOARD MOCKUP */}
           <div className="how-hero-graphic">
-            <div className="how-calendar-panel glass">
-              <div className="calendar-panel-header">
-                <span className="window-dot red"></span>
-                <span className="window-dot yellow"></span>
-                <span className="window-dot green"></span>
-                <span className="panel-title-text">Studio Calendar booking</span>
-              </div>
-              <div className="calendar-meta-row">
-                <div className="meta-stat">
-                  <span className="meta-label">Selected Date</span>
-                  <span className="meta-val">July 12, 2026</span>
+            <div className="studio-dashboard-mockup glass">
+              {/* DASHBOARD HEADER */}
+              <div className="db-header">
+                <div className="db-dots-title">
+                  <span className="window-dot red"></span>
+                  <span className="window-dot yellow"></span>
+                  <span className="window-dot green"></span>
+                  <span className="db-title-text">ZO1 Studio Dashboard</span>
                 </div>
-                <div className="meta-stat">
-                  <span className="meta-label">Time Slots</span>
-                  <span className="meta-val">4 Hours (Shift A)</span>
+                {/* Floating Revenue Badge top-right */}
+                <div className="floating-rev-badge">
+                  <span className="badge-lbl-top">TODAY'S REVENUE</span>
+                  <span className="badge-val-top">₹84,500</span>
+                  <span className="badge-change-top">↑ 32% vs yesterday</span>
                 </div>
               </div>
-              <div className="calendar-date-grid">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28].map((day) => (
-                  <div key={day} className={`calendar-day-cell ${day === 12 ? 'active' : ''} ${[5, 14, 22].includes(day) ? 'booked' : ''}`}>
-                    {day}
+
+              {/* STATS ROW */}
+              <div className="db-stats-row">
+                <div className="db-stat-card glass">
+                  <span className="db-stat-lbl">OCCUPANCY</span>
+                  <div className="db-stat-main">
+                    <span className="db-stat-val">82%</span>
+                    <span className="db-stat-change text-success">↑ 14%</span>
                   </div>
-                ))}
+                </div>
+                <div className="db-stat-card glass">
+                  <span className="db-stat-lbl">BOOKINGS</span>
+                  <div className="db-stat-main">
+                    <span className="db-stat-val">47</span>
+                    <span className="db-stat-change text-success">↑ 8 this week</span>
+                  </div>
+                </div>
+                <div className="db-stat-card glass">
+                  <span className="db-stat-lbl">REVENUE</span>
+                  <div className="db-stat-main">
+                    <span className="db-stat-val">₹3.8L</span>
+                    <span className="db-stat-change text-success">↑ 22%</span>
+                  </div>
+                </div>
               </div>
-              <div className="calendar-panel-footer">
-                <span className="est-total-label">Total Escrow Protection</span>
-                <span className="est-total-val">₹6,000</span>
+
+              {/* MIDDLE ROW (CALENDAR + OCCUPANCY GRAPH) */}
+              <div className="db-middle-row">
+                {/* CALENDAR COLUMN */}
+                <div className="db-calendar-section glass">
+                  {/* Floating Overall Rating badge inside calendar */}
+                  <div className="floating-rating-badge">
+                    <span className="rating-badge-lbl">OVERALL RATING</span>
+                    <div className="rating-badge-val">
+                      <span>4.92 / 5.0</span>
+                      <div className="rating-stars">★★★★★</div>
+                    </div>
+                  </div>
+
+                  <div className="calendar-week-days">
+                    <span>S</span>
+                    <span>M</span>
+                    <span>T</span>
+                    <span>W</span>
+                    <span>T</span>
+                    <span>F</span>
+                    <span>S</span>
+                  </div>
+
+                  <div className="db-calendar-grid">
+                    {/* Empty cell spacers to start 1st of month on Tuesday */}
+                    <span className="calendar-grid-spacer"></span>
+                    <span className="calendar-grid-spacer"></span>
+                    {[
+                      { day: 1, type: 'green' }, { day: 2, type: 'purple' }, { day: 3, type: 'purple' }, { day: 4, type: 'green' }, { day: 5, type: 'green' },
+                      { day: 6, type: 'purple' }, { day: 7, type: 'purple' }, { day: 8, type: 'purple' }, { day: 9, type: 'orange' }, { day: 10, type: 'purple' },
+                      { day: 11, type: 'purple' }, { day: 12, type: 'green' }, { day: 13, type: 'purple' }, { day: 14, type: 'purple' }, { day: 15, type: 'green' },
+                      { day: 16, type: 'purple' }, { day: 17, type: 'purple' }, { day: 18, type: 'orange' }, { day: 19, type: 'purple' }, { day: 20, type: 'purple' },
+                      { day: 21, type: 'purple' }, { day: 22, type: 'purple' }, { day: 23, type: 'highlight' }, { day: 24, type: 'green' }, { day: 25, type: 'green' },
+                      { day: 26, type: 'green' }
+                    ].map((d) => (
+                      <span key={d.day} className={`db-cal-cell ${d.type}`}>
+                        {d.day}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* OCCUPANCY BAR GRAPH COLUMN */}
+                <div className="db-occupancy-section glass">
+                  <h4>STUDIO OCCUPANCY</h4>
+                  <div className="occupancy-bars-stack">
+                    <div className="occ-bar-group">
+                      <div className="occ-bar-labels">
+                        <span className="occ-bar-title">Studio A</span>
+                        <span className="occ-bar-val">82%</span>
+                      </div>
+                      <div className="occ-bar-track">
+                        <div className="occ-bar-fill fill-purple" style={{ width: '82%' }}></div>
+                      </div>
+                    </div>
+                    <div className="occ-bar-group">
+                      <div className="occ-bar-labels">
+                        <span className="occ-bar-title">Studio B</span>
+                        <span className="occ-bar-val">55%</span>
+                      </div>
+                      <div className="occ-bar-track">
+                        <div className="occ-bar-fill fill-blue" style={{ width: '55%' }}></div>
+                      </div>
+                    </div>
+                    <div className="occ-bar-group">
+                      <div className="occ-bar-labels">
+                        <span className="occ-bar-title">Studio C</span>
+                        <span className="occ-bar-val">72%</span>
+                      </div>
+                      <div className="occ-bar-track">
+                        <div className="occ-bar-fill fill-green" style={{ width: '72%' }}></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* BOTTOM BOOKING LIST */}
+              <div className="db-bookings-list">
+                <div className="db-booking-row confirmed glass">
+                  <div className="booking-row-left">
+                    <span className="b-avatar bg-red-dim">Films</span>
+                    <div className="booking-row-meta">
+                      <h5>RedChillies Films</h5>
+                      <p>Studio A • 8 hrs</p>
+                    </div>
+                  </div>
+                  <div className="booking-row-right">
+                    <span className="booking-amount">₹24,000</span>
+                    <span className="booking-status confirmed">CONFIRMED</span>
+                  </div>
+                </div>
+
+                <div className="db-booking-row pending glass">
+                  <div className="booking-row-left">
+                    <span className="b-avatar bg-blue-dim">MN</span>
+                    <div className="booking-row-meta">
+                      <h5>Myntra Brand Team</h5>
+                      <p>Photo Studio B • 4 hrs</p>
+                    </div>
+                  </div>
+                  <div className="booking-row-right">
+                    <span className="booking-amount">₹8,000</span>
+                    <span className="booking-status pending">PENDING</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Alert Badge bottom-left overlay */}
+              <div className="floating-alert-pill">
+                <span className="alert-pulse-dot"></span>
+                <div className="alert-content">
+                  <h5>Studio 4 Booked!</h5>
+                  <p>RedChillies Films — 6hrs</p>
+                </div>
               </div>
             </div>
           </div>
@@ -5560,7 +5690,7 @@ function App() {
                 </p>
               </div>
 
-              <div className="hero-graphic-content-ref">
+              <div className="hero-graphic-content">
                 <div className="hero-right-card-wrap">
                   {/* TOP RIGHT BADGE */}
                   <div className="hero-vendors-badge">
@@ -6329,9 +6459,9 @@ function App() {
 
       {/* BOOKING PAGES VIEW */}
       {currentPage === 'booking' && (
-        <div className="booking-page-view container">
+        <div className="booking-page-view booking-page-view-with-sidebar container">
           {/* SUB-NAVBAR TABS (Studios to Rewards) */}
-          <div className="booking-subnav glass">
+          <div className="booking-subnav glass booking-subnav-floating">
             <button
               className={`subnav-btn ${activeBookingTab === 'studios' ? 'active' : ''}`}
               onClick={() => setActiveBookingTab('studios')}
@@ -6382,9 +6512,9 @@ function App() {
 
       {/* BLOG PAGES VIEW */}
       {currentPage === 'blog' && (
-        <div className="booking-page-view container">
+        <div className="booking-page-view blog-page-view container">
           {/* SUB-NAVBAR TABS (Filmmaker to Popular Topics) */}
-          <div className="booking-subnav glass flex-wrap-dual-row">
+          <div className="booking-subnav glass flex-wrap-dual-row blog-subnav-floating">
             <button
               className={`subnav-btn ${activeBlogTab === 'filmmaker' ? 'active' : ''}`}
               onClick={() => setActiveBlogTab('filmmaker')}
