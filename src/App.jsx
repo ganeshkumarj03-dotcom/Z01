@@ -5560,11 +5560,13 @@ function App() {
                 </p>
               </div>
 
-              {/* RIGHT COLUMN - RICH INTERACTIVE MOCKUP */}
-              <div className="hero-graphic-content">
-                <div className="mockup-container">
-                  {/* BACKDROP GLOW */}
-                  <div className="mockup-glow"></div>
+              <div className="hero-graphic-content-ref">
+                <div className="hero-right-card-wrap">
+                  {/* TOP RIGHT BADGE */}
+                  <div className="hero-vendors-badge">
+                    <span className="vendors-badge-icon">🛡️</span>
+                    <span className="vendors-badge-text">500+ Verified Vendors</span>
+                  </div>
 
                   {/* FLOATING CLIENTS BADGE */}
                   <div className="badge-floating glass">
