@@ -133,7 +133,7 @@ function App() {
     {
       id: 3,
       title: "AK Production Hub",
-      image: "/living_room_studio.png",
+      image: "/public/AK_production.jpg",
       location: "Adyar, Chennai · 2.1 km away",
       specs: "1500 sq.ft • Natural Light • Prop Set",
       rating: "4.9",
@@ -156,10 +156,10 @@ function App() {
     },
     {
       id: 2,
-      title: "Sony A7S III Camera Kit",
+      title: "DJI Ronin 4D 4-Axis Cinema Camera",
       image: "/public/dji_ronin.png",
       specs: "12MP Full-Frame, 4K 120p, Gimbal ready",
-      price: "₹3,500/day",
+      price: "₹25,000/day",
       category: "Cameras",
       tag: "Hot Deal"
     },
@@ -174,10 +174,10 @@ function App() {
     },
     {
       id: 4,
-      title: "ARRI Alexa Mini LF",
+      title: "RED DIGITAL Cinema",
       image: "/public/Red_digital.jpg",
       specs: "Large Format Cinema Camera, PL Mount",
-      price: "₹25,000/day",
+      price: "₹2,000/day",
       category: "Cameras",
       tag: "Production Standard"
     }
@@ -2536,22 +2536,22 @@ function App() {
           <span className="showcase-section-badge">BOOKING WORKFLOW</span>
           <div className="booking-steps-grid-4 margin-top-sm">
             <div className="step-card-alt">
-              <div className="step-badge-num">1</div>
+              <div className="step-badge-num">🔍</div>
               <h4>Step 01: Browse Studios</h4>
               <p>Filter by city, capacity & type</p>
             </div>
             <div className="step-card-alt">
-              <div className="step-badge-num">2</div>
+              <div className="step-badge-num">📅</div>
               <h4>Step 02: Select Date & Time</h4>
               <p>Real-time availability calendar</p>
             </div>
             <div className="step-card-alt">
-              <div className="step-badge-num">3</div>
+              <div className="step-badge-num">🖋️</div>
               <h4>Step 03: Confirm Booking</h4>
               <p>Secure payment & instant contract</p>
             </div>
             <div className="step-card-alt">
-              <div className="step-badge-num bg-green">✓</div>
+              <div className="step-badge-num bg-green">🎥</div>
               <h4>Done ✓: Shoot Day Ready</h4>
               <p>Everything confirmed & waiting</p>
             </div>
@@ -2561,19 +2561,19 @@ function App() {
         {/* 4 CIRCLE STATS HIGHLIGHTS */}
         <div className="booking-stats-row glass">
           <div className="stat-unit">
-            <h3>500+</h3>
+            <h3 style={{ color: '#227aff' }}>500+</h3>
             <p>Verified Studios</p>
           </div>
           <div className="stat-unit">
-            <h3>12</h3>
+            <h3 style={{ color: '#34ff22' }}>12</h3>
             <p>Cities Covered</p>
           </div>
           <div className="stat-unit">
-            <h3>Instant</h3>
+            <h3 style={{ color: '#fe0000' }}>Instant</h3>
             <p>Booking Confirmation</p>
           </div>
           <div className="stat-unit">
-            <h3>24/7</h3>
+            <h3 style={{ color: '#00c1fc' }}>24/7</h3>
             <p>Studio Availability</p>
           </div>
         </div>
@@ -2763,9 +2763,7 @@ function App() {
         </div>
 
         {/* BOTTOM REDIRECT */}
-        <div className="blog-footer-btn-row">
-          <button className="btn-primary-orange">Explore Studios <ArrowRight size={16} /></button>
-        </div>
+        
       </div>
     );
   };
@@ -4431,7 +4429,7 @@ function App() {
           Join 100,000+ filmmakers, studio owners, equipment providers, and crew members building smarter productions with ZO1.
         </p>
 
-        <div className="level-up-btn-row">
+        <div className="level-up-btn-row" style={{ marginTop: '28px' }}>
           <button className="btn-level-orange" onClick={() => setCurrentPage('home')}>Explore ZO1 →</button>
           <button className="btn-level-purple" onClick={() => setActiveBlogTab('filmmaker')}>Read More Articles →</button>
           <button className="btn-level-glass" onClick={() => setActiveBlogTab('newsletter')}>Join Newsletter</button>
@@ -5394,9 +5392,9 @@ function App() {
             </div>
           </div>
         </div>
-
+ 
         {/* FIND THE PERFECT STUDIO BOTTOM BANNER */}
-        <div className="blog-showcase-row-container width-100 max-width-1100 margin-top-lg margin-bottom-lg">
+        <div className="blog-showcase-row-container width-100 font-padding-lg max-width-1100 margin-top-lg margin-bottom-lg">
           <div className="intel-hub-wide-card glass" style={{ background: "linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(0,0,0,0.85) 100%)" }}>
             <div className="intel-glow-purple"></div>
             <div className="intel-layout-grid flex-column-mobile text-center-mobile">
