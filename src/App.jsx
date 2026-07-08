@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Play, Camera, Video, Users, CheckCircle, Calendar, Search,
   Star, MapPin, ArrowRight, Coins, ChevronRight, Menu, X,
@@ -7,8 +7,19 @@ import {
 } from 'lucide-react';
 import './App.css';
 
+const validPages = new Set(['home', 'production', 'booking', 'blog', 'crew', 'how-it-works', 'help']);
+
+const getPageFromHash = () => {
+  if (typeof window === 'undefined') {
+    return 'home';
+  }
+
+  const hash = window.location.hash.slice(1);
+  return validPages.has(hash) ? hash : 'home';
+};
+
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState(getPageFromHash);
   const [activeHeroTab, setActiveHeroTab] = useState('studios');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [emailSubscribed, setEmailSubscribed] = useState(false);
@@ -69,13 +80,37 @@ function App() {
   const [activeHowTab, setActiveHowTab] = useState('All');
   const [hostEarnings, setHostEarnings] = useState(120000);
 
+  useEffect(() => {
+    const syncPageFromHash = () => {
+      setCurrentPage(getPageFromHash());
+    };
+
+    syncPageFromHash();
+    window.addEventListener('hashchange', syncPageFromHash);
+
+    return () => {
+      window.removeEventListener('hashchange', syncPageFromHash);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const nextHash = `#${currentPage}`;
+    if (window.location.hash !== nextHash) {
+      window.history.replaceState(null, '', nextHash);
+    }
+  }, [currentPage]);
+
   // Sample data for interactive search/filtering
   const studios = [
     {
       id: 1,
-      title: "Green Screen Studio",
-      image: "/green_screen_studio.png",
-      location: "Andheri West, Mumbai",
+      title: "GreenBox Studio",
+      image: "/public/greenbox.jpg",
+      location: "Guindy, Chennai · 1.3 km away",
       specs: "1200 sq.ft • 12+ Lights • 30+ Crew",
       rating: "4.9",
       reviews: "48 reviews",
@@ -85,9 +120,9 @@ function App() {
     },
     {
       id: 2,
-      title: "Podcast & Talkshow Studio",
+      title: "ProVoice Pod Studio",
       image: "/podcast_studio.png",
-      location: "Bandra West, Mumbai",
+      location: "Perungudi, Chennai · 0.8 km away",
       specs: "800 sq.ft • 4+ Mics • Full Setup",
       rating: "4.8",
       reviews: "32 reviews",
@@ -97,9 +132,9 @@ function App() {
     },
     {
       id: 3,
-      title: "Cozy Living Room Set Studio",
-      image: "/living_room_studio.png",
-      location: "Goregaon East, Mumbai",
+      title: "AK Production Hub",
+      image: "/public/AK_production.jpg",
+      location: "Adyar, Chennai · 2.1 km away",
       specs: "1500 sq.ft • Natural Light • Prop Set",
       rating: "4.9",
       reviews: "60 reviews",
@@ -112,8 +147,8 @@ function App() {
   const equipment = [
     {
       id: 1,
-      title: "Sony FX6 Cinema Camera",
-      image: "/cinema_camera.png",
+      title: "Sony FX3 Cinema Camera",
+      image: "/public/sony_fx3.jpg",
       specs: "Full-frame 4K, 120fps, Dual ISO",
       price: "₹5,000/day",
       category: "Cameras",
@@ -121,17 +156,17 @@ function App() {
     },
     {
       id: 2,
-      title: "Sony A7S III Camera Kit",
-      image: "/cinema_camera.png",
+      title: "DJI Ronin 4D 4-Axis Cinema Camera",
+      image: "/public/dji_ronin.png",
       specs: "12MP Full-Frame, 4K 120p, Gimbal ready",
-      price: "₹3,500/day",
+      price: "₹25,000/day",
       category: "Cameras",
       tag: "Hot Deal"
     },
     {
       id: 3,
       title: "Canon EOS R5 RF-Lens Kit",
-      image: "/cinema_camera.png",
+      image: "/public/canon.jpg",
       specs: "8K Video, 45MP Stills, RF 24-70mm lens",
       price: "₹4,000/day",
       category: "Cameras",
@@ -139,10 +174,10 @@ function App() {
     },
     {
       id: 4,
-      title: "ARRI Alexa Mini LF",
-      image: "/cinema_camera.png",
+      title: "RED DIGITAL Cinema",
+      image: "/public/Red_digital.jpg",
       specs: "Large Format Cinema Camera, PL Mount",
-      price: "₹25,000/day",
+      price: "₹2,000/day",
       category: "Cameras",
       tag: "Production Standard"
     }
@@ -365,27 +400,27 @@ function App() {
         <div className="booking-steps-section">
           <div className="steps-header">
             <span className="section-badge bg-orange">HOW IT WORKS</span>
-            <h2>Book a Studio in <span className="text-gradient-orange">4 Simple Steps</span></h2>
+            {/* <h2>Book a Studio in <span className="text-gradient-orange">4 Simple Steps</span></h2> */}
             <p>From discovery to confirmed booking — faster than ordering food delivery.</p>
           </div>
           <div className="booking-steps-grid-4">
             <div className="step-card-alt">
-              <div className="step-badge-num">1</div>
+              <div className="feat-icon-box orange">📍</div>
               <h4>Search Location</h4>
               <p>Filter by location, size, capacity, price and specs.</p>
             </div>
             <div className="step-card-alt">
-              <div className="step-badge-num">2</div>
+              <div className="feat-icon-box orange">🎬</div>
               <h4>Select Studio</h4>
               <p>View photos, amenities, reviews, transparent pricing.</p>
             </div>
             <div className="step-card-alt">
-              <div className="step-badge-num">3</div>
+              <div className="feat-icon-box orange">📅</div>
               <h4>Choose Time</h4>
               <p>Pick your slot and see live availability.</p>
             </div>
             <div className="step-card-alt">
-              <div className="step-badge-num">4</div>
+              <div className="feat-icon-box orange">🎉</div>
               <h4>Confirm Booking</h4>
               <p>Pay securely and receive instant confirmation.</p>
             </div>
@@ -442,15 +477,15 @@ function App() {
         {/* STATS BAR */}
         <div className="booking-stats-row glass">
           <div className="stat-unit">
-            <h3>500+</h3>
+            <h3 style={{ color: 'orange' }}>500+</h3>
             <p>Verified studios across cities</p>
           </div>
           <div className="stat-unit">
-            <h3>15,000+</h3>
+            <h3 style={{ color: 'green' }}>15,000+</h3>
             <p>Bookings completed</p>
           </div>
           <div className="stat-unit">
-            <h3>4.9★</h3>
+            <h3 style={{ color: 'purple' }}>4.9★</h3>
             <p>Average platform rating</p>
           </div>
         </div>
@@ -1604,7 +1639,7 @@ function App() {
 
           <div className="latest-articles-grid-6">
             <div className="latest-article-card glass">
-              <div className="card-img-placeholder orange-bg">
+              <div className="card-img-placeholder orange-bg gradient">
                 <span className="card-cat-badge">Filmmaking</span>
               </div>
               <div className="card-content">
@@ -2501,22 +2536,22 @@ function App() {
           <span className="showcase-section-badge">BOOKING WORKFLOW</span>
           <div className="booking-steps-grid-4 margin-top-sm">
             <div className="step-card-alt">
-              <div className="step-badge-num">1</div>
+              <div className="step-badge-num">🔍</div>
               <h4>Step 01: Browse Studios</h4>
               <p>Filter by city, capacity & type</p>
             </div>
             <div className="step-card-alt">
-              <div className="step-badge-num">2</div>
+              <div className="step-badge-num">📅</div>
               <h4>Step 02: Select Date & Time</h4>
               <p>Real-time availability calendar</p>
             </div>
             <div className="step-card-alt">
-              <div className="step-badge-num">3</div>
+              <div className="step-badge-num">🖋️</div>
               <h4>Step 03: Confirm Booking</h4>
               <p>Secure payment & instant contract</p>
             </div>
             <div className="step-card-alt">
-              <div className="step-badge-num bg-green">✓</div>
+              <div className="step-badge-num bg-green">🎥</div>
               <h4>Done ✓: Shoot Day Ready</h4>
               <p>Everything confirmed & waiting</p>
             </div>
@@ -2526,19 +2561,19 @@ function App() {
         {/* 4 CIRCLE STATS HIGHLIGHTS */}
         <div className="booking-stats-row glass">
           <div className="stat-unit">
-            <h3>500+</h3>
+            <h3 style={{ color: '#227aff' }}>500+</h3>
             <p>Verified Studios</p>
           </div>
           <div className="stat-unit">
-            <h3>12</h3>
+            <h3 style={{ color: '#34ff22' }}>12</h3>
             <p>Cities Covered</p>
           </div>
           <div className="stat-unit">
-            <h3>Instant</h3>
+            <h3 style={{ color: '#fe0000' }}>Instant</h3>
             <p>Booking Confirmation</p>
           </div>
           <div className="stat-unit">
-            <h3>24/7</h3>
+            <h3 style={{ color: '#00c1fc' }}>24/7</h3>
             <p>Studio Availability</p>
           </div>
         </div>
@@ -2728,9 +2763,7 @@ function App() {
         </div>
 
         {/* BOTTOM REDIRECT */}
-        <div className="blog-footer-btn-row">
-          <button className="btn-primary-orange">Explore Studios <ArrowRight size={16} /></button>
-        </div>
+        
       </div>
     );
   };
@@ -4396,7 +4429,7 @@ function App() {
           Join 100,000+ filmmakers, studio owners, equipment providers, and crew members building smarter productions with ZO1.
         </p>
 
-        <div className="level-up-btn-row">
+        <div className="level-up-btn-row" style={{ marginTop: '28px' }}>
           <button className="btn-level-orange" onClick={() => setCurrentPage('home')}>Explore ZO1 →</button>
           <button className="btn-level-purple" onClick={() => setActiveBlogTab('filmmaker')}>Read More Articles →</button>
           <button className="btn-level-glass" onClick={() => setActiveBlogTab('newsletter')}>Join Newsletter</button>
@@ -4779,9 +4812,9 @@ function App() {
     ];
 
     const steps = [
-      { num: "1", title: "Search & Filter", desc: "Browse through portfolios, rates, and reviews of verified crew members." },
-      { num: "2", title: "Submit Offer & Escrow", desc: "Send a booking request and secure the daily rate in ZO1 escrow." },
-      { num: "3", title: "Complete & Release", desc: "Your shoot goes smoothly, and funds are released after crew completes the day." }
+      { num: "🔍", title: "Search & Filter", desc: "Browse through portfolios, rates, and reviews of verified crew members." },
+      { num: "🖋️", title: "Submit Offer & Escrow", desc: "Send a booking request and secure the daily rate in ZO1 escrow." },
+      { num: "✅", title: "Complete & Release", desc: "Your shoot goes smoothly, and funds are released after crew completes the day." }
     ];
 
     const advantages = [
@@ -5359,9 +5392,9 @@ function App() {
             </div>
           </div>
         </div>
-
+ 
         {/* FIND THE PERFECT STUDIO BOTTOM BANNER */}
-        <div className="blog-showcase-row-container width-100 max-width-1100 margin-top-lg margin-bottom-lg">
+        <div className="blog-showcase-row-container width-100 font-padding-lg max-width-1100 margin-top-lg margin-bottom-lg">
           <div className="intel-hub-wide-card glass" style={{ background: "linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(0,0,0,0.85) 100%)" }}>
             <div className="intel-glow-purple"></div>
             <div className="intel-layout-grid flex-column-mobile text-center-mobile">
