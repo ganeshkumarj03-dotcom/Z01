@@ -45,6 +45,25 @@ function App() {
 
   // Blog page sub-tab state
   const [activeBlogTab, setActiveBlogTab] = useState('filmmaker'); // filmmaker, studio, gear, crew, marketplace, trust_guide, rewards_guide, success, author, search_res, newsletter, dashboard, mobile_exp, platform_stats, popular_topics, level_up
+  const [activeArticle, setActiveArticle] = useState({
+    title: "How Independent Filmmakers Reduced Production Costs by 40% Using ZO1",
+    subtitle: "A data-backed look inside three indie shoots across Chennai and Mumbai — where they overspent before, what changed after switching to ZO1, and the exact line items that moved.",
+    category: "Case Study",
+    author: "ZO1 Editorial Team",
+    authorInitial: "ZE",
+    date: "Jun 10, 2026",
+    readTime: "8 min read",
+    views: "24.5K",
+    saves: "1.2K",
+    comments: "86",
+    gradientClass: "orange-red",
+    hasStats: true,
+    stats: [
+      { value: "40%", label: "Avg. cost reduction" },
+      { value: "6.5 days", label: "Faster to lock crew" },
+      { value: "₹4.2L", label: "Avg. saved per shoot" }
+    ]
+  });
 
   // FAQ Accordion & Help Search states
   const [expandedFaq, setExpandedFaq] = useState(null);
@@ -1533,7 +1552,7 @@ function App() {
           </div>
 
           {/* FEATURED STORY CARD */}
-          <div className="blog-featured-card glass">
+          <div className="blog-featured-card glass" style={{ cursor: 'pointer' }} onClick={() => { setActiveBlogTab('article_40percent'); window.scrollTo(0, 0); }}>
             <div className="featured-card-gradient-top">
               <span className="featured-story-tag">🔥 Featured Story</span>
             </div>
@@ -1639,7 +1658,24 @@ function App() {
           <p className="sub-heading-text">Fresh insights for creators and production professionals</p>
 
           <div className="latest-articles-grid-6">
-            <div className="latest-article-card glass">
+            <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => {
+              setActiveArticle({
+                title: "5 Cinematography Techniques That Will Elevate Your Next Short Film",
+                subtitle: "Master the visual language of cinema with techniques used by top directors across India.",
+                category: "Filmmaking",
+                author: "Arjun Kumar",
+                authorInitial: "AK",
+                date: "Jun 12",
+                readTime: "8 min",
+                views: "8.2K",
+                saves: "450",
+                comments: "24",
+                gradientClass: "orange",
+                hasStats: false
+              });
+              setActiveBlogTab('article_40percent');
+              window.scrollTo(0, 0);
+            }}>
               <div className="card-img-placeholder orange-bg gradient">
                 <span className="card-cat-badge">Filmmaking</span>
               </div>
@@ -1659,7 +1695,24 @@ function App() {
               </div>
             </div>
 
-            <div className="latest-article-card glass">
+            <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => {
+              setActiveArticle({
+                title: "How to Negotiate Equipment Rental Rates Like a Pro",
+                subtitle: "Insider tips from production veterans on getting the best deals without compromising quality.",
+                category: "Production Tips",
+                author: "Shreya Rajan",
+                authorInitial: "SR",
+                date: "Jun 11",
+                readTime: "5 min",
+                views: "5.8K",
+                saves: "320",
+                comments: "18",
+                gradientClass: "purple",
+                hasStats: false
+              });
+              setActiveBlogTab('article_40percent');
+              window.scrollTo(0, 0);
+            }}>
               <div className="card-img-placeholder purple-bg">
                 <span className="card-cat-badge">Production Tips</span>
               </div>
@@ -1679,7 +1732,24 @@ function App() {
               </div>
             </div>
 
-            <div className="latest-article-card glass">
+            <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => {
+              setActiveArticle({
+                title: "Virtual Production Studios: The New Frontier for Indie Filmmakers",
+                subtitle: "How LED volumes are democratizing cinematic quality for independent creators.",
+                category: "Studio Booking",
+                author: "Maya Pillai",
+                authorInitial: "MP",
+                date: "Jun 9",
+                readTime: "7 min",
+                views: "8.9K",
+                saves: "580",
+                comments: "42",
+                gradientClass: "blue",
+                hasStats: false
+              });
+              setActiveBlogTab('article_40percent');
+              window.scrollTo(0, 0);
+            }}>
               <div className="card-img-placeholder blue-bg">
                 <span className="card-cat-badge">Studio Booking</span>
               </div>
@@ -1699,7 +1769,24 @@ function App() {
               </div>
             </div>
 
-            <div className="latest-article-card glass">
+            <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => {
+              setActiveArticle({
+                title: "Monetizing Your Production Skills: From Freelancer to Studio Owner",
+                subtitle: "The blueprint creators are using to turn their craft into thriving production businesses.",
+                category: "Creator Economy",
+                author: "Vikram Singh",
+                authorInitial: "VS",
+                date: "Jun 8",
+                readTime: "9 min",
+                views: "11.4K",
+                saves: "750",
+                comments: "64",
+                gradientClass: "yellow",
+                hasStats: false
+              });
+              setActiveBlogTab('article_40percent');
+              window.scrollTo(0, 0);
+            }}>
               <div className="card-img-placeholder yellow-bg">
                 <span className="card-cat-badge">Creator Economy</span>
               </div>
@@ -1719,7 +1806,29 @@ function App() {
               </div>
             </div>
 
-            <div className="latest-article-card glass">
+            <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => {
+              setActiveArticle({
+                title: "Inside a ₹50L Short Film: Budget Breakdown & What We Learned",
+                subtitle: "A transparent look at how one indie director managed an entire shoot on ZO1.",
+                category: "Case Study",
+                author: "Priya Menon",
+                authorInitial: "PM",
+                date: "Jun 7",
+                readTime: "10 min",
+                views: "15.2K",
+                saves: "1.1K",
+                comments: "95",
+                gradientClass: "green",
+                hasStats: true,
+                stats: [
+                  { value: "₹50L", label: "Total Budget Managed" },
+                  { value: "100%", label: "Escrow Secured" },
+                  { value: "₹5.6L", label: "Saved in Gaps & Float" }
+                ]
+              });
+              setActiveBlogTab('article_40percent');
+              window.scrollTo(0, 0);
+            }}>
               <div className="card-img-placeholder green-bg">
                 <span className="card-cat-badge">Case Study</span>
               </div>
@@ -1739,7 +1848,24 @@ function App() {
               </div>
             </div>
 
-            <div className="latest-article-card glass">
+            <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => {
+              setActiveArticle({
+                title: "Finding & Retaining Top-Tier Crew in a Competitive Market",
+                subtitle: "How to attract, vet, and build long-term relationships with the best production talent.",
+                category: "Crew Hiring",
+                author: "Rahul Khanna",
+                authorInitial: "RK",
+                date: "Jun 5",
+                readTime: "6 min",
+                views: "4.8K",
+                saves: "210",
+                comments: "12",
+                gradientClass: "pink",
+                hasStats: false
+              });
+              setActiveBlogTab('article_40percent');
+              window.scrollTo(0, 0);
+            }}>
               <div className="card-img-placeholder pink-bg">
                 <span className="card-cat-badge">Crew Hiring</span>
               </div>
@@ -3356,7 +3482,7 @@ function App() {
             </div>
 
             <div className="latest-articles-grid-2col margin-top-sm">
-              <div className="latest-article-card glass">
+              <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => { setActiveBlogTab('article_40percent'); window.scrollTo(0, 0); }}>
                 <div className="card-img-placeholder orange-bg">
                   <span className="card-cat-badge">Case Study</span>
                 </div>
@@ -4447,6 +4573,379 @@ function App() {
     );
   };
 
+  // 3q Blog Article: Dynamic Article View
+  const renderBlogArticle40Percent = () => {
+    return (
+      <div className="blog-article-detail-view fade-in">
+        {/* HEADER AREA */}
+        <div className="article-header">
+          <a href="#blog" onClick={(e) => { e.preventDefault(); setActiveBlogTab('filmmaker'); window.scrollTo(0, 0); }} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: '#C084FC', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+            ← Back to Filmmaker Hub
+          </a>
+          <br />
+          <span className="article-cat-tag">{activeArticle.category}</span>
+          <h1 className="article-title">{activeArticle.title}</h1>
+          <p className="article-subtitle">
+            {activeArticle.subtitle}
+          </p>
+          
+          <div className="article-meta-row">
+            <div className="article-author-info">
+              <div className="article-author-avatar">{activeArticle.authorInitial}</div>
+              <div className="article-author-meta">
+                <h4>{activeArticle.author}</h4>
+                <p>{activeArticle.date} • {activeArticle.readTime}</p>
+              </div>
+            </div>
+            <div className="article-action-buttons">
+              <button className="btn-article-action">
+                <Heart size={14} /> Save
+              </button>
+              <button className="btn-article-action" onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Link copied to clipboard!");
+              }}>
+                Share
+              </button>
+            </div>
+          </div>
+          
+          <div className="article-stats-bar">
+            <span><Eye size={14} /> {activeArticle.views} views</span>
+            <span>❤️ {activeArticle.saves || "1.2K"} saves</span>
+            <span>💬 {activeArticle.comments} comments</span>
+          </div>
+        </div>
+
+        {/* HERO IMAGE BLOCK */}
+        <div className="article-hero-image-block" style={{
+          background: activeArticle.gradientClass === 'orange' ? 'linear-gradient(135deg, #FF512F 0%, #F09819 100%)' :
+                      activeArticle.gradientClass === 'purple' ? 'linear-gradient(135deg, #8A2387 0%, #E94057 100%)' :
+                      activeArticle.gradientClass === 'blue' ? 'linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%)' :
+                      activeArticle.gradientClass === 'green' ? 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' :
+                      activeArticle.gradientClass === 'yellow' ? 'linear-gradient(135deg, #FFE000 0%, #799F0C 100%)' :
+                      activeArticle.gradientClass === 'pink' ? 'linear-gradient(135deg, #f857a6 0%, #ff5858 100%)' :
+                      'linear-gradient(135deg, #FF512F 0%, #DD2476 100%)'
+        }}>
+          <div className="intel-glow-purple"></div>
+        </div>
+
+        {/* MAIN BODY AND SIDEBAR GRID */}
+        <div className="article-body-grid">
+          {/* LEFT COLUMN: MAIN CONTENT */}
+          <div className="article-main-content">
+            <div className="article-rich-text">
+              <p>
+                Three years ago, a 12-day independent shoot in Chennai would routinely blow past ₹35L before a single frame reached the edit suite. Studio deposits held cash hostage for weeks. Equipment came from three different vendors with three different pickup windows. Crew was found through phone chains and goodwill. None of it was designed — it just accumulated, the way production costs always do when nothing is centralized.
+              </p>
+              <p>
+                We tracked three productions that moved their entire workflow onto ZO1 over the past two quarters — a 45-minute festival short, a branded content series, and a feature in pre-production. Each kept its books open to us. The pattern across all three was the same: costs didn't fall because any single expense got cheaper. They fell because the gaps between expenses — the idle days, the duplicate deposits, the crew sourced twice — mostly disappeared.
+              </p>
+
+              <h3 id="leak-section">Where the money was actually leaking</h3>
+              <p>
+                Before ZO1, none of the three productions had a single view of committed spend versus available budget. Studio bookings, equipment holds, and crew contracts lived in separate group chats, separate deposits, and separate cancellation policies. The result wasn't overspending in any one category — it was float. Money sitting locked in refundable-but-forgotten holds while producers scrambled for cash to cover the next line item.
+              </p>
+
+              {/* STATS ROW */}
+              {activeArticle.hasStats ? (
+                <div className="article-inner-stats-row">
+                  {activeArticle.stats.map((stat, idx) => (
+                    <div key={idx} className="article-inner-stat-card">
+                      <h3>{stat.value}</h3>
+                      <p>{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+
+              <p>
+                The biggest single lever was studio deposits. All three productions had historically paid 100% upfront to hold a date, often 30+ days before the shoot, with refund terms buried in WhatsApp messages rather than contracts. ZO1's verified booking flow moved that to a 20% hold with automatic release if a studio didn't confirm — which alone freed up capital that had been sitting idle for weeks at a time.
+              </p>
+
+              {/* PULL QUOTE */}
+              <div className="article-pull-quote">
+                <p>"We weren't spending less on the studio. We were just not paying for three studios at once anymore, on the off chance one of them fell through."</p>
+                <span>— Line producer, 45-minute festival short (name withheld per production NDA)</span>
+              </div>
+
+              <h3 id="equip-section">The equipment rental fix nobody expected</h3>
+              <p>
+                Equipment was the second-largest source of hidden cost, but not for the reason most productions assume. It wasn't rental rates — ZO1's marketplace pricing tracked close to what these teams were already paying independent vendors. The savings came from consolidation: booking a camera package, lighting kit, and sound gear from a single verified vendor cut delivery and pickup logistics from three separate trips to one, and eliminated the insurance gap that used to appear whenever gear crossed vendor lines.
+              </p>
+              <p>
+                One production had previously lost four shoot hours waiting on a lighting delivery that arrived from a different city than the camera package. On ZO1, equipment bundles are filtered by single location fulfillment by default, which sounds like a small UI decision until you've lost a full lighting setup day to a traffic delay nobody could plan around.
+              </p>
+
+              <h3 id="crew-section">What changed in the crew hiring process</h3>
+              <ul className="article-bullet-list">
+                <li>
+                  <span className="check-icon">✓</span>
+                  <span>Verified crew profiles replaced word-of-mouth references, cutting the vetting phase from roughly two weeks to three days.</span>
+                </li>
+                <li>
+                  <span className="check-icon">✓</span>
+                  <span>Standardized day-rate contracts through ZO1 removed the back-and-forth negotiation that used to eat into pre-production time.</span>
+                </li>
+                <li>
+                  <span className="check-icon">✓</span>
+                  <span>Crew availability calendars meant fewer double-bookings discovered the week of the shoot.</span>
+                </li>
+                <li>
+                  <span className="check-icon">✓</span>
+                  <span>Super Coins earned on studio and equipment bookings offset a portion of crew costs on two of the three productions.</span>
+                </li>
+              </ul>
+
+              {/* IMAGE BOX */}
+              <div className="article-image-box">
+                <div className="image-placeholder" style={{
+                  background: activeArticle.gradientClass === 'green' ? 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' :
+                              activeArticle.gradientClass === 'blue' ? 'linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%)' :
+                              activeArticle.gradientClass === 'orange' ? 'linear-gradient(135deg, #FF512F 0%, #F09819 100%)' :
+                              'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)'
+                }}></div>
+                <p className="image-caption">On-set during the branded content series' final shoot day, Mumbai.</p>
+              </div>
+
+              <h3 id="meaning-section">What this doesn't mean</h3>
+              <p>
+                None of this suggests ZO1 makes filmmaking cheap — production is still expensive, and no platform changes that. What it changes is where the money goes: less toward float, duplicate deposits, and coordination failures, more toward the actual craft. The 40% figure is an average across three very different productions, and the teams that saved the most were the ones with the least prior structure to begin with.
+              </p>
+              <p>
+                A production that already had tight vendor relationships and a trusted crew network saw closer to 15-20% — still meaningful, but a reminder that ZO1 compounds existing chaos reduction rather than replacing good production management outright.
+              </p>
+            </div>
+
+            {/* TAGS */}
+            <div className="article-tags-row">
+              <span className="article-bottom-tag">{activeArticle.category}</span>
+              <span className="article-bottom-tag">Budgeting</span>
+              <span className="article-bottom-tag">Crew Hiring</span>
+              <span className="article-bottom-tag">Chennai</span>
+              <span className="article-bottom-tag">Mumbai</span>
+            </div>
+
+            {/* AUTHOR SIGNATURE BOX */}
+            <div className="article-author-signature-box">
+              <div className="article-author-sig-avatar">{activeArticle.authorInitial}</div>
+              <div className="article-author-sig-text">
+                <h4>{activeArticle.author}</h4>
+                <p>
+                  {activeArticle.author === 'ZO1 Editorial Team' 
+                    ? 'A team of working filmmakers, producers, and production professionals who have collectively worked on 500+ shoots across India. We write what we know — from studio floors to edit suites, equipment bays to casting sessions.' 
+                    : `A verified industry professional sharing production tips, tricks, and insights on the ZO1 platform to help creators build better. Vetted DP or Crew Member representing ${activeArticle.category}.`}
+                </p>
+              </div>
+            </div>
+
+            {/* COMMENTS SECTION */}
+            <div className="article-comments-block">
+              <div className="comments-header-row">
+                <h4>{activeArticle.comments} Comments</h4>
+                <button className="comments-btn-view">View Comments</button>
+              </div>
+              <div className="comments-body-placeholder">
+                💬 Join the discussion — producers are sharing their own numbers below.
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: SIDEBAR */}
+          <div className="article-sidebar-widgets">
+            {/* ON THIS PAGE (TOC) */}
+            <div className="article-widget-card">
+              <h4>On This Page</h4>
+              <ul className="toc-list">
+                <li>
+                  <a href="#leak-section" className="toc-link" onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('leak-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }}>Where the money was leaking</a>
+                </li>
+                <li>
+                  <a href="#equip-section" className="toc-link" onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('equip-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }}>The equipment rental fix</a>
+                </li>
+                <li>
+                  <a href="#crew-section" className="toc-link" onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('crew-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }}>What changed in crew hiring</a>
+                </li>
+                <li>
+                  <a href="#meaning-section" className="toc-link" onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('meaning-section')?.scrollIntoView({ behavior: 'smooth' });
+                  }}>What this doesn't mean</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* RELATED READS */}
+            <div className="article-widget-card">
+              <h4>Related Reads</h4>
+              <div className="related-reads-list">
+                <div className="related-read-item" onClick={() => window.scrollTo(0, 0)}>
+                  <div className="related-read-img-placeholder blue"></div>
+                  <div className="related-read-text">
+                    <h5>Virtual Production Studios: The New Frontier for Indie Filmmakers</h5>
+                    <span>6.9K views</span>
+                  </div>
+                </div>
+                <div className="related-read-item" onClick={() => window.scrollTo(0, 0)}>
+                  <div className="related-read-img-placeholder orange"></div>
+                  <div className="related-read-text">
+                    <h5>The Ultimate Camera Equipment Checklist for 2026</h5>
+                    <span>12.7K views</span>
+                  </div>
+                </div>
+                <div className="related-read-item" onClick={() => window.scrollTo(0, 0)}>
+                  <div className="related-read-img-placeholder green"></div>
+                  <div className="related-read-text">
+                    <h5>How to Maximize Rewards on Every ZO1 Booking</h5>
+                    <span>7.2K views</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* SHARE THIS ARTICLE */}
+            <div className="article-widget-card">
+              <h4>Share This Article</h4>
+              <div className="share-links-row">
+                <button className="btn-share-social" onClick={() => alert("Shared to X (formerly Twitter)")}>X / Twitter</button>
+                <button className="btn-share-social" onClick={() => alert("Shared to LinkedIn")}>LinkedIn</button>
+              </div>
+            </div>
+
+            {/* NEWSLETTER SUBSCRIBE */}
+            <div className="article-widget-card inbox-subscribe-widget">
+              <h4>Get case studies like this in your inbox</h4>
+              <div className="subscribe-input-wrap">
+                <input type="email" placeholder="you@studio.com" />
+                <button onClick={() => alert("Subscribed successfully!")}>Subscribe →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM RELATED ARTICLES SECTION */}
+        <div className="related-articles-bottom-section">
+          <div className="related-section-header">
+            <h3>More from Case Studies & Budgeting</h3>
+            <a href="#blog" className="see-all-link" onClick={(e) => { e.preventDefault(); setActiveBlogTab('filmmaker'); window.scrollTo(0, 0); }}>See all →</a>
+          </div>
+
+          <div className="related-articles-grid-3col">
+            {/* Card 1 */}
+            <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => {
+              setActiveArticle({
+                title: "How to Negotiate Equipment Rental Rates Like a Pro",
+                subtitle: "Insider tips from production veterans on getting the best deals without compromising quality.",
+                category: "Production Tips",
+                author: "Shreya Rajan",
+                authorInitial: "SR",
+                date: "Jun 11",
+                readTime: "5 min",
+                views: "5.6K",
+                saves: "320",
+                comments: "18",
+                gradientClass: "blue",
+                hasStats: false
+              });
+              window.scrollTo(0, 0);
+            }}>
+              <div className="card-img-placeholder blue-bg">
+                <span className="card-cat-badge">Production Tips</span>
+              </div>
+              <div className="card-content">
+                <h4>How to Negotiate Equipment Rental Rates Like a Pro</h4>
+                <p>Insider tips from production veterans on getting the best deals without compromising quality.</p>
+                <div className="card-footer-author">
+                  <div className="footer-author-profile">
+                    <div className="footer-author-avatar-mini" style={{ width: '20px', height: '20px', borderRadius: '50%', background: '#7C3AED', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', marginRight: '6px' }}>SR</div>
+                    <span>Shreya Rajan</span>
+                  </div>
+                  <span className="views-count">Jun 11 • 5.6K views</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => {
+              setActiveArticle({
+                title: "Monetizing Your Production Skills: From Freelancer to Studio Owner",
+                subtitle: "The blueprint creators are using to turn their craft into thriving production businesses.",
+                category: "Creator Economy",
+                author: "Vikram Singh",
+                authorInitial: "VS",
+                date: "Jun 8",
+                readTime: "9 min",
+                views: "11.4K",
+                saves: "750",
+                comments: "64",
+                gradientClass: "orange",
+                hasStats: false
+              });
+              window.scrollTo(0, 0);
+            }}>
+              <div className="card-img-placeholder orange-bg">
+                <span className="card-cat-badge">Creator Economy</span>
+              </div>
+              <div className="card-content">
+                <h4>Monetizing Your Production Skills: From Freelancer to Studio Owner</h4>
+                <p>The blueprint creators are using to turn their craft into thriving production businesses.</p>
+                <div className="card-footer-author">
+                  <div className="footer-author-profile">
+                    <div className="footer-author-avatar-mini" style={{ width: '20px', height: '20px', borderRadius: '50%', background: '#3B82F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', marginRight: '6px' }}>VS</div>
+                    <span>Vikram Singh</span>
+                  </div>
+                  <span className="views-count">Jun 8 • 11.4K views</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="latest-article-card glass" style={{ cursor: 'pointer' }} onClick={() => {
+              setActiveArticle({
+                title: "Finding & Retaining Top-Tier Crew in a Competitive Market",
+                subtitle: "How to attract, vet, and build long-term relationships with the best production talent.",
+                category: "Crew Hiring",
+                author: "Rahul Khanna",
+                authorInitial: "RK",
+                date: "Jun 5",
+                readTime: "6 min",
+                views: "4.8K",
+                saves: "210",
+                comments: "12",
+                gradientClass: "purple",
+                hasStats: false
+              });
+              window.scrollTo(0, 0);
+            }}>
+              <div className="card-img-placeholder purple-bg">
+                <span className="card-cat-badge">Crew Hiring</span>
+              </div>
+              <div className="card-content">
+                <h4>Finding & Retaining Top-Tier Crew in a Competitive Market</h4>
+                <p>How to attract, vet, and build long-term relationships with the best production talent.</p>
+                <div className="card-footer-author">
+                  <div className="footer-author-profile">
+                    <div className="footer-author-avatar-mini" style={{ width: '20px', height: '20px', borderRadius: '50%', background: '#F59E0B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', marginRight: '6px' }}>RK</div>
+                    <span>Rahul Khanna</span>
+                  </div>
+                  <span className="views-count">Jun 6 • 4.8K views</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   // ==========================================
   // HELP AND DOCS VIEW (Frequently Asked Questions)
@@ -6491,107 +6990,109 @@ function App() {
 
       {/* BLOG PAGES VIEW */}
       {currentPage === 'blog' && (
-        <div className="booking-page-view blog-page-view container">
+        <div className={`booking-page-view ${activeBlogTab !== 'article_40percent' ? 'blog-page-view' : 'blog-article-detail-view'} container`}>
           {/* SUB-NAVBAR TABS (Filmmaker to Popular Topics) */}
-          <div className="booking-subnav glass flex-wrap-dual-row blog-subnav-floating">
-            <button
-              className={`subnav-btn ${activeBlogTab === 'filmmaker' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('filmmaker')}
-            >
-              Filmmaker Hub
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'studio' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('studio')}
-            >
-              Studio Guide
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'gear' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('gear')}
-            >
-              Gear Guide
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'crew' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('crew')}
-            >
-              Crew Guide
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'marketplace' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('marketplace')}
-            >
-              Marketplace Guide
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'trust_guide' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('trust_guide')}
-            >
-              Trust Guide
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'rewards_guide' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('rewards_guide')}
-            >
-              Rewards Guide
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'success' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('success')}
-            >
-              Success Stories
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'author' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('author')}
-            >
-              Author Profile
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'search_res' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('search_res')}
-            >
-              Search Results
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'newsletter' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('newsletter')}
-            >
-              Newsletter
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'dashboard' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('dashboard')}
-            >
-              Dashboard
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'mobile_exp' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('mobile_exp')}
-            >
-              Mobile Experience
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'platform_stats' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('platform_stats')}
-            >
-              Platform Stats
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'popular_topics' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('popular_topics')}
-            >
-              Popular Topics
-            </button>
-            <button
-              className={`subnav-btn ${activeBlogTab === 'level_up' ? 'active' : ''}`}
-              onClick={() => setActiveBlogTab('level_up')}
-            >
-              Level Up
-            </button>
-          </div>
-
+          {activeBlogTab !== 'article_40percent' && (
+            <div className="booking-subnav glass flex-wrap-dual-row blog-subnav-floating">
+              <button
+                className={`subnav-btn ${activeBlogTab === 'filmmaker' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('filmmaker')}
+              >
+                Filmmaker Hub
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'studio' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('studio')}
+              >
+                Studio Guide
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'gear' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('gear')}
+              >
+                Gear Guide
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'crew' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('crew')}
+              >
+                Crew Guide
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'marketplace' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('marketplace')}
+              >
+                Marketplace Guide
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'trust_guide' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('trust_guide')}
+              >
+                Trust Guide
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'rewards_guide' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('rewards_guide')}
+              >
+                Rewards Guide
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'success' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('success')}
+              >
+                Success Stories
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'author' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('author')}
+              >
+                Author Profile
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'search_res' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('search_res')}
+              >
+                Search Results
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'newsletter' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('newsletter')}
+              >
+                Newsletter
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'dashboard' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('dashboard')}
+              >
+                Dashboard
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'mobile_exp' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('mobile_exp')}
+              >
+                Mobile Experience
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'platform_stats' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('platform_stats')}
+              >
+                Platform Stats
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'popular_topics' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('popular_topics')}
+              >
+                Popular Topics
+              </button>
+              <button
+                className={`subnav-btn ${activeBlogTab === 'level_up' ? 'active' : ''}`}
+                onClick={() => setActiveBlogTab('level_up')}
+              >
+                Level Up
+              </button>
+            </div>
+          )}
+ 
           {/* SUB-PAGES RENDER */}
           {activeBlogTab === 'filmmaker' && renderBlogFilmmaker()}
           {activeBlogTab === 'studio' && renderBlogStudio()}
@@ -6609,6 +7110,7 @@ function App() {
           {activeBlogTab === 'platform_stats' && renderBlogPlatformStats()}
           {activeBlogTab === 'popular_topics' && renderBlogPopularTopics()}
           {activeBlogTab === 'level_up' && renderBlogLevelUp()}
+          {activeBlogTab === 'article_40percent' && renderBlogArticle40Percent()}
         </div>
       )}
 
