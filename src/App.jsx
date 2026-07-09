@@ -102,6 +102,7 @@ function App() {
     if (window.location.hash !== nextHash) {
       window.history.replaceState(null, '', nextHash);
     }
+    window.scrollTo(0, 0);
   }, [currentPage]);
 
   // Sample data for interactive search/filtering
@@ -4704,7 +4705,7 @@ function App() {
         {/* BROWSE BY CATEGORY */}
         <div className="blog-latest-articles-section width-100 max-width-1100 margin-top-lg">
           <div className="section-title-row text-center-mobile flex-center">
-            <span className="blog-badge-tag bg-purple-outline" style={{ display: 'inline-block' }}>📋 KNOWLEDGE BASE</span>
+            <span className="blog-badge-tag bg-purple-outline" style={{ display: 'inline-block' }}> KNOWLEDGE BASE</span>
           </div>
           <h3 className="text-center-mobile text-center-title" style={{ marginTop: '1rem' }}>Browse by Category</h3>
           <p className="sub-heading-text text-center-mobile text-center-subtitle">Not sure where to start? Browse our most popular help categories.</p>
@@ -4734,7 +4735,7 @@ function App() {
         {/* STILL NEED HELP Section */}
         <div className="blog-latest-articles-section width-100 max-width-1100 margin-top-lg">
           <div className="section-title-row text-center-mobile flex-center">
-            <span className="blog-badge-tag bg-purple-outline" style={{ display: 'inline-block' }}>📞 GET IN TOUCH</span>
+            <span className="blog-badge-tag bg-purple-outline" style={{ display: 'inline-block' }}> GET IN TOUCH</span>
           </div>
           <h3 className="text-center-mobile text-center-title" style={{ marginTop: '1rem' }}>Still Need Help?</h3>
           <p className="sub-heading-text text-center-mobile text-center-subtitle">Can't find what you're looking for? Our team is ready to assist you.</p>
@@ -4773,7 +4774,7 @@ function App() {
             <div className="intel-glow-purple"></div>
             <div className="intel-layout-grid flex-column-mobile text-center-mobile">
               <div className="intel-text-side">
-                <span className="blog-badge-tag bg-purple">🛡️ 24/7 PRODUCTION DESK</span>
+                <span className="blog-badge-tag">🛡️ 24/7 PRODUCTION DESK</span>
                 <h2>Need Personal Assistance?</h2>
                 <p>Talk to a dedicated production manager to organize your studio, camera kit, and complete crew bundle.</p>
               </div>
@@ -5051,19 +5052,19 @@ function App() {
         <div className="blog-showcase-row-container width-100 max-width-1100 margin-top-lg margin-bottom-lg">
           <div className="intel-hub-wide-card glass">
             <div className="intel-glow-purple"></div>
-            <div className="intel-layout-grid flex-column-mobile text-center-mobile">
+            <div className="intel-layout-grid flex-column-mobile text-center-mobile" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1.5rem' }}>
               <div className="intel-text-side">
                 <h2>Build Your Dream Production Team</h2>
                 <p>Connect with verified professionals and scale your crew team in minutes.</p>
               </div>
-              <div className="flex-center-row-gap flex-column-mobile">
+              <div className="flex-center-row-gap flex-column-mobile" style={{ justifyContent: 'flex-start', width: '100%' }}>
                 <button className="btn-crew-primary font-bold-medium">Hire Crew Now</button>
                 <button className="btn-crew-outline-light font-bold-medium">Join as Crew</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 );
 };
 
@@ -5553,7 +5554,7 @@ function App() {
       {/* NAVBAR */}
       <nav className="navbar glass">
         <div className="container nav-content">
-          <div className="logo-section" onClick={() => setCurrentPage('home')} style={{ cursor: 'pointer' }}>
+          <div className="logo-section" onClick={() => { setCurrentPage('home'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
             <div className="logo-icon">
               <Sparkles className="logo-spark" size={18} />
             </div>
@@ -5564,51 +5565,37 @@ function App() {
             <a
               href="#home"
               className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); setCurrentPage('home'); setMobileMenuOpen(false); }}
+              onClick={(e) => { e.preventDefault(); setCurrentPage('home'); setMobileMenuOpen(false); window.scrollTo(0, 0); }}
             >
               Home
             </a>
             <a
               href="#production"
               className={`nav-link ${currentPage === 'production' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); setCurrentPage('production'); setMobileMenuOpen(false); }}
+              onClick={(e) => { e.preventDefault(); setCurrentPage('production'); setMobileMenuOpen(false); window.scrollTo(0, 0); }}
             >
               Production
             </a>
             <a
               href="#booking"
               className={`nav-link ${currentPage === 'booking' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); setCurrentPage('booking'); setMobileMenuOpen(false); }}
+              onClick={(e) => { e.preventDefault(); setCurrentPage('booking'); setMobileMenuOpen(false); window.scrollTo(0, 0); }}
             >
               Booking
             </a>
             <a
-              href="#blog"
-              className={`nav-link ${currentPage === 'blog' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); setCurrentPage('blog'); setMobileMenuOpen(false); }}
-            >
-              Blog
-            </a>
-            <a
               href="#crew"
               className={`nav-link ${currentPage === 'crew' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); setCurrentPage('crew'); setMobileMenuOpen(false); }}
+              onClick={(e) => { e.preventDefault(); setCurrentPage('crew'); setMobileMenuOpen(false); window.scrollTo(0, 0); }}
             >
               Crew
             </a>
             <a
               href="#how-it-works"
               className={`nav-link ${currentPage === 'how-it-works' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); setCurrentPage('how-it-works'); setMobileMenuOpen(false); }}
+              onClick={(e) => { e.preventDefault(); setCurrentPage('how-it-works'); setMobileMenuOpen(false); window.scrollTo(0, 0); }}
             >
               How It Works
-            </a>
-            <a
-              href="#help"
-              className={`nav-link ${currentPage === 'help' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); setCurrentPage('help'); setMobileMenuOpen(false); }}
-            >
-              Help and Docs
             </a>
           </div>
 
@@ -5698,15 +5685,7 @@ function App() {
                     <span className="vendors-badge-text">500+ Verified Vendors</span>
                   </div>
 
-                  {/* FLOATING CLIENTS BADGE */}
-                  <div className="badge-floating glass">
-                    <Users size={16} className="text-lavender" />
-                    <div>
-                      <div className="badge-val">500+</div>
-                      <div className="badge-lbl">Active Studios</div>
-                    </div>
-                  </div>
-
+                  
                   {/* DESKTOP DASHBOARD MOCKUP */}
                   <div className="desktop-mockup glass">
                     <div className="window-header">
@@ -6646,7 +6625,7 @@ function App() {
       <footer className="footer">
         <div className="container footer-grid">
           <div className="footer-brand-col">
-            <div className="logo-section" onClick={() => setCurrentPage('home')} style={{ cursor: 'pointer' }}>
+            <div className="logo-section" onClick={() => { setCurrentPage('home'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
               <div className="logo-icon">
                 <Sparkles className="logo-spark" size={16} />
               </div>

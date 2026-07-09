@@ -4,7 +4,7 @@
   width: 100%;
   min-height: 100vh;
   background-color: var(--bg-dark);
-  overflow: hidden;
+  overflow: clip;
   padding-top: 80px; /* Space for sticky navbar */
 }
 
@@ -1754,7 +1754,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 5rem 0 0 0;
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
 
 .footer-grid {
@@ -2951,7 +2951,7 @@
 
 .blog-subnav-floating, .booking-subnav-floating {
   position: fixed;
-  left: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
+  left: 50px;
   top: 100px;
   z-index: 99;
   display: flex;
@@ -2966,6 +2966,10 @@
   overflow-y: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   margin: 0;
+}
+
+.blog-subnav-floating {
+  max-height: 22.5rem; /* Fits exactly 8 buttons vertically in normal view */
 }
 
 .blog-subnav-floating .subnav-btn, .booking-subnav-floating .subnav-btn {
@@ -4966,10 +4970,10 @@
   display: inline-flex;
   font-size: 0.75rem;
   font-weight: 800;
-  padding: 0.35rem 0.8rem;
+  padding: 0.rem 0.8rem;
   border-radius: 20px;
   letter-spacing: 0.5px;
-  margin-bottom: 1.5rem;
+  ;
 }
 
 .blog-badge-tag.bg-orange {
@@ -5863,7 +5867,7 @@
   font-weight: 700;
   font-size: 0.9rem;
   padding: 0.75rem 2rem;
-  border-radius: 8px;
+  border-radius: 30px;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
   transition: all 0.2s;
@@ -7465,12 +7469,14 @@
 .font-gold { color: #FACC15; }
 
 /* Intel Hub Wide layouts */
-.intel-hub-wide-card {
-  border-radius: 16px;
-  padding: 3rem;
-  position: relative;
-  overflow: hidden;
-  border-color: rgba(255,255,255,0.06);
+.intel-hub-wide-card
+ {
+    margin-top: 40px;
+    border-radius: 16px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    border-color: rgba(255, 255, 255, 0.06);
 }
 
 .intel-glow-purple {
@@ -7916,10 +7922,12 @@
   text-align: left;
 }
 
+
 .flex-center-row-gap {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 /* RESPONSIVE LAYOUT OVERRIDES */
@@ -7976,7 +7984,7 @@
   gap: 3rem;
   align-items: center;
   padding: 5rem 1.5rem 3rem 1.5rem;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -8214,7 +8222,7 @@
 
 /* GENERAL SECTION BLOCK */
 .crew-section-block {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 5rem auto 0 auto;
   padding: 0 1.5rem;
 }
@@ -8724,7 +8732,7 @@
   gap: 3rem;
   align-items: center;
   padding: 5rem 1.5rem 3rem 1.5rem;
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -9259,7 +9267,7 @@
 
 /* EXPLORE STUDIO CATEGORIES */
 .how-section-block {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 5rem auto 0 auto;
   padding: 0 1.5rem;
 }
