@@ -334,9 +334,6 @@ const pageMetadata = {
       { rel: "canonical", href: "https://z01.in/help" }
     ]
   }
-};al", href: "https://z01.in/help" }
-    ]
-  }
 };
 
 const getPageFromHash = () => {
