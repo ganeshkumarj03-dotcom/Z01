@@ -7,7 +7,337 @@ import {
 } from 'lucide-react';
 import './App.css';
 
-const validPages = new Set(['home', 'production', 'booking', 'blog', 'crew', 'how-it-works', 'help']);
+const validPages = new Set(['home', 'production', 'booking', 'blog', 'crew', 'how-it-works', 'help', 'equipment', 'equipment/cameras', 'studios', 'about', 'contact', 'vendor-portal', 'terms', 'privacy', 'cookies', 'careers', 'sitemap', 'press', 'list-your-studio']);
+
+const pageMetadata = {
+  home: {
+    title: "Z01 — Book Studios, Cameras & Crew in Chennai",
+    meta: [
+      { name: "description", content: "Rent photography & recording studios, cinema cameras, lighting, and hire verified crew — all in one place. 500+ vendors. Book in minutes." },
+      { name: "keywords", content: "book studios Chennai, rent camera equipment Chennai, hire cinematographer Chennai, rental marketplace India" },
+      { property: "og:title", content: "Z01 — Studios, Equipment & Crew, Booked in Minutes" },
+      { property: "og:description", content: "The all-in-one rental marketplace for creators — studios, gear, and skilled crew across Chennai." },
+      { property: "og:url", content: "https://z01.in/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Z01 — Studios, Equipment & Crew, Booked in Minutes" },
+      { name: "twitter:description", content: "The all-in-one rental marketplace for creators — studios, gear, and skilled crew across Chennai." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/" }
+    ]
+  },
+  production: {
+    title: "ZO1 | Production Marketplace",
+    meta: [
+      { name: "description", content: "Production planning made easy. Rent verified studios, gear, and hire crew." }
+    ]
+  },
+  booking: {
+    title: "ZO1 | Book Studios, Gear & Crew",
+    meta: [
+      { name: "description", content: "Seamless booking for studios, camera gear, and crew. Zero booking fees." }
+    ]
+  },
+  equipment: {
+    title: "Rent Cameras, Lenses & Production Gear | Z01",
+    meta: [
+      { name: "description", content: "Rent cinema cameras, lenses, lighting kits, microphones, drones, and tripods from verified vendors in Chennai. Secure payments, real-time availability." },
+      { name: "keywords", content: "camera rental Chennai, rent lighting equipment, drone rental Chennai, professional gear rental India" },
+      { property: "og:title", content: "Rent Production Equipment on Z01" },
+      { property: "og:description", content: "Cameras, lenses, lighting, audio gear, and more — rented by the day from trusted vendors." },
+      { property: "og:url", content: "https://z01.in/equipment" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Rent Production Equipment on Z01" },
+      { name: "twitter:description", content: "Cameras, lenses, lighting, audio gear, and more — rented by the day from trusted vendors." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/equipment" }
+    ]
+  },
+  'equipment/cameras': {
+    title: "Rent Cinema & DSLR Cameras in Chennai | Z01",
+    meta: [
+      { name: "description", content: "Rent professional cinema cameras and DSLRs from verified vendors in Chennai. Flexible daily rates, insured gear, easy pickup or delivery." },
+      { name: "keywords", content: "cinema camera rental Chennai, DSLR rental, rent RED camera, rent Sony camera Chennai" },
+      { property: "og:title", content: "Rent Cinema & DSLR Cameras | Z01" },
+      { property: "og:description", content: "Professional cameras, insured and ready to shoot — book by the day from verified vendors." },
+      { property: "og:url", content: "https://z01.in/equipment/cameras" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Rent Cinema & DSLR Cameras | Z01" },
+      { name: "twitter:description", content: "Professional cameras, insured and ready to shoot — book by the day from verified vendors." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/equipment/cameras" }
+    ]
+  },
+  studios: {
+    title: "Book Photography & Recording Studios in Chennai | Z01",
+    meta: [
+      { name: "description", content: "Browse 500+ verified studios in Chennai — photography, recording, editing suites, and event spaces. Compare, book, and pay securely on Z01." },
+      { name: "keywords", content: "photography studio booking Chennai, recording studio rental, editing suite hire, event space rental Chennai" },
+      { property: "og:title", content: "Find and Book Studios in Chennai | Z01" },
+      { property: "og:description", content: "Photography, recording, editing, and event spaces — all verified, all bookable in minutes." },
+      { property: "og:url", content: "https://z01.in/studios" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Find and Book Studios in Chennai | Z01" },
+      { name: "twitter:description", content: "Photography, recording, editing, and event spaces — all verified, all bookable in minutes." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/studios" }
+    ]
+  },
+  about: {
+    title: "About Z01 — The Rental Marketplace for Creators",
+    meta: [
+      { name: "description", content: "Z01 connects creators with trusted vendors for studios, equipment, and crew. Learn about our mission to make production booking simple and secure." },
+      { name: "keywords", content: "about Z01, Z01 company, production marketplace Chennai" },
+      { property: "og:title", content: "About Z01" },
+      { property: "og:description", content: "The premium production marketplace for filmmakers, brands, and content creators." },
+      { property: "og:url", content: "https://z01.in/about" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About Z01" },
+      { name: "twitter:description", content: "The premium production marketplace for filmmakers, brands, and content creators." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/about" }
+    ]
+  },
+  contact: {
+    title: "Contact Z01 — Get in Touch",
+    meta: [
+      { name: "description", content: "Have a question about bookings, vendors, or partnerships? Reach the Z01 team directly — we're based in Chennai and happy to help." },
+      { name: "keywords", content: "contact Z01, Z01 support email, Z01 customer service" },
+      { property: "og:title", content: "Contact Z01" },
+      { property: "og:description", content: "Questions about bookings, vendors, or partnerships? Get in touch with the Z01 team." },
+      { property: "og:url", content: "https://z01.in/contact" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Contact Z01" },
+      { name: "twitter:description", content: "Questions about bookings, vendors, or partnerships? Get in touch with the Z01 team." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/contact" }
+    ]
+  },
+  'vendor-portal': {
+    title: "Z01 Vendor Portal — Manage Listings & Bookings",
+    meta: [
+      { name: "description", content: "Log in to the Z01 vendor portal to manage your studio, equipment, and crew listings, track bookings, and get paid securely." },
+      { name: "keywords", content: "Z01 vendor login, Z01 vendor portal, manage Z01 listings" },
+      { property: "og:title", content: "Z01 Vendor Portal" },
+      { property: "og:description", content: "Manage listings, track bookings, and get paid — all from your Z01 vendor dashboard." },
+      { property: "og:url", content: "https://z01.in/vendor-portal" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Z01 Vendor Portal" },
+      { name: "twitter:description", content: "Manage listings, track bookings, and get paid — all from your Z01 vendor dashboard." },
+      { name: "robots", content: "noindex, nofollow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/vendor-portal" }
+    ]
+  },
+  terms: {
+    title: "Terms of Service | Z01",
+    meta: [
+      { name: "description", content: "The terms and conditions governing use of the Z01 platform for users and vendors." },
+      { name: "keywords", content: "Z01 terms of service, Z01 terms and conditions" },
+      { property: "og:title", content: "Z01 Terms of Service" },
+      { property: "og:description", content: "Terms and conditions governing use of the Z01 platform." },
+      { property: "og:url", content: "https://z01.in/terms" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Z01 Terms of Service" },
+      { name: "twitter:description", content: "Terms and conditions governing use of the Z01 platform." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/terms" }
+    ]
+  },
+  privacy: {
+    title: "Privacy Policy | Z01",
+    meta: [
+      { name: "description", content: "Read how Z01 collects, uses, and protects your personal data across the user and vendor apps." },
+      { name: "keywords", content: "Z01 privacy policy, Z01 data protection" },
+      { property: "og:title", content: "Z01 Privacy Policy" },
+      { property: "og:description", content: "How Z01 collects, uses, and protects your personal data." },
+      { property: "og:url", content: "https://z01.in/privacy" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Z01 Privacy Policy" },
+      { name: "twitter:description", content: "How Z01 collects, uses, and protects your personal data." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/privacy" }
+    ]
+  },
+  cookies: {
+    title: "Cookie Policy | Z01",
+    meta: [
+      { name: "description", content: "Learn what cookies Z01 uses and how to manage your cookie preferences." },
+      { name: "keywords", content: "Z01 cookie policy, Z01 cookies" },
+      { property: "og:title", content: "Z01 Cookie Policy" },
+      { property: "og:description", content: "What cookies Z01 uses and how to manage your preferences." },
+      { property: "og:url", content: "https://z01.in/cookies" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Z01 Cookie Policy" },
+      { name: "twitter:description", content: "What cookies Z01 uses and how to manage your preferences." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/cookies" }
+    ]
+  },
+  careers: {
+    title: "Careers at Z01 — Join Our Team in Chennai",
+    meta: [
+      { name: "description", content: "Explore open roles at Z01, the premium production marketplace for filmmakers and creators. Build the future of studio and crew booking with us." },
+      { name: "keywords", content: "Z01 careers, jobs Chennai startup, Z01 hiring" },
+      { property: "og:title", content: "Careers at Z01" },
+      { property: "og:description", content: "Join the team building the future of studio, equipment, and crew booking." },
+      { property: "og:url", content: "https://z01.in/careers" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Careers at Z01" },
+      { name: "twitter:description", content: "Join the team building the future of studio, equipment, and crew booking." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/careers" }
+    ]
+  },
+  sitemap: {
+    title: "Sitemap | Z01",
+    meta: [
+      { name: "description", content: "Browse every page on Z01 — studios, equipment, crew, company, and support pages in one place." },
+      { name: "keywords", content: "Z01 sitemap" },
+      { property: "og:title", content: "Z01 Sitemap" },
+      { property: "og:description", content: "Browse every page on Z01 in one place." },
+      { property: "og:url", content: "https://z01.in/sitemap" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Z01 Sitemap" },
+      { name: "twitter:description", content: "Browse every page on Z01 in one place." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/sitemap" }
+    ]
+  },
+  press: {
+    title: "Z01 Press Kit — Brand Assets & Media Resources",
+    meta: [
+      { name: "description", content: "Download Z01 logos, brand guidelines, and company facts for press and media coverage." },
+      { name: "keywords", content: "Z01 press kit, Z01 media assets, Z01 logo download" },
+      { property: "og:title", content: "Z01 Press Kit" },
+      { property: "og:description", content: "Logos, brand guidelines, and company facts for media and press." },
+      { property: "og:url", content: "https://z01.in/press" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Z01 Press Kit" },
+      { name: "twitter:description", content: "Logos, brand guidelines, and company facts for media and press." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/press" }
+    ]
+  },
+  'list-your-studio': {
+    title: "List Your Studio or Equipment on Z01",
+    meta: [
+      { name: "description", content: "Become a verified Z01 vendor. List your studio, equipment, or crew services and reach creators across Chennai. Manage bookings in real time." },
+      { name: "keywords", content: "list studio Z01, become Z01 vendor, rent out equipment Chennai, Z01 vendor sign up" },
+      { property: "og:title", content: "List Your Studio, Gear or Crew on Z01" },
+      { property: "og:description", content: "Reach verified creators across Chennai. Manage listings and bookings in real time." },
+      { property: "og:url", content: "https://z01.in/list-your-studio" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "List Your Studio, Gear or Crew on Z01" },
+      { name: "twitter:description", content: "Reach verified creators across Chennai. Manage listings and bookings in real time." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/list-your-studio" }
+    ]
+  },
+  blog: {
+    title: "Z01 Blog — Tips for Creators, Filmmakers & Studio Owners",
+    meta: [
+      { name: "description", content: "Guides on studio booking, gear rental, and hiring production crew, plus tips for vendors listing on Z01. Fresh reads for Chennai's creator community." },
+      { name: "keywords", content: "filmmaking tips, studio rental guide, Z01 blog, production tips Chennai" },
+      { property: "og:title", content: "Z01 Blog" },
+      { property: "og:description", content: "Guides and tips for creators, filmmakers, and studio owners in Chennai." },
+      { property: "og:url", content: "https://z01.in/blog" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Z01 Blog" },
+      { name: "twitter:description", content: "Guides and tips for creators, filmmakers, and studio owners in Chennai." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/blog" }
+    ]
+  },
+  crew: {
+    title: "Hire Photographers, Videographers & Production Crew | Z01",
+    meta: [
+      { name: "description", content: "Hire experienced photographers, videographers, editors, sound engineers, and makeup artists in Chennai. Verified profiles, ratings, and reviews on Z01." },
+      { name: "keywords", content: "hire photographer Chennai, hire videographer Chennai, freelance video editor, sound engineer for hire, makeup artist booking" },
+      { property: "og:title", content: "Hire Skilled Crew for Your Next Shoot | Z01" },
+      { property: "og:description", content: "Photographers, videographers, editors, and production assistants — all verified and ready to book." },
+      { property: "og:url", content: "https://z01.in/crew" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Hire Skilled Crew for Your Next Shoot | Z01" },
+      { name: "twitter:description", content: "Photographers, videographers, editors, and production assistants — all verified and ready to book." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/crew" }
+    ]
+  },
+  'how-it-works': {
+    title: "ZO1 | How It Works",
+    meta: [
+      { name: "description", content: "How to rent studios, camera equipment and hire professional crew step by step." }
+    ]
+  },
+  help: {
+    title: "Z01 Help Center — FAQs & Support",
+    meta: [
+      { name: "description", content: "Find answers to common questions about bookings, payments, cancellations, and vendor accounts on Z01." },
+      { name: "keywords", content: "Z01 help, Z01 FAQ, Z01 customer support" },
+      { property: "og:title", content: "Z01 Help Center" },
+      { property: "og:description", content: "Answers to common questions about bookings, payments, and your Z01 account." },
+      { property: "og:url", content: "https://z01.in/help" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Z01 Help Center" },
+      { name: "twitter:description", content: "Answers to common questions about bookings, payments, and your Z01 account." },
+      { name: "robots", content: "index, follow" }
+    ],
+    links: [
+      { rel: "canonical", href: "https://z01.in/help" }
+    ]
+  }
+};al", href: "https://z01.in/help" }
+    ]
+  }
+};
 
 const getPageFromHash = () => {
   if (typeof window === 'undefined') {
@@ -25,6 +355,7 @@ function App() {
   const [emailSubscribed, setEmailSubscribed] = useState(false);
   const [claimStatus, setClaimStatus] = useState('idle'); // idle, claiming, claimed
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedEqCategory, setSelectedEqCategory] = useState('All');
 
   // Interactive calendar state on Production page
   const [selectedCalDate, setSelectedCalDate] = useState(6);
@@ -101,7 +432,21 @@ function App() {
 
   useEffect(() => {
     const syncPageFromHash = () => {
-      setCurrentPage(getPageFromHash());
+      const page = getPageFromHash();
+      if (page === 'equipment') {
+        setCurrentPage('booking');
+        setActiveBookingTab('equipment');
+        setSelectedEqCategory('All');
+      } else if (page === 'equipment/cameras') {
+        setCurrentPage('booking');
+        setActiveBookingTab('equipment');
+        setSelectedEqCategory('Cameras');
+      } else if (page === 'studios') {
+        setCurrentPage('booking');
+        setActiveBookingTab('studios');
+      } else {
+        setCurrentPage(page);
+      }
     };
 
     syncPageFromHash();
@@ -117,12 +462,83 @@ function App() {
       return;
     }
 
-    const nextHash = `#${currentPage}`;
+    let nextHash = `#${currentPage}`;
+    if (currentPage === 'booking') {
+      if (activeBookingTab === 'equipment') {
+        nextHash = selectedEqCategory === 'Cameras' ? '#equipment/cameras' : '#equipment';
+      } else if (activeBookingTab === 'studios') {
+        nextHash = '#studios';
+      }
+    }
+
     if (window.location.hash !== nextHash) {
       window.history.replaceState(null, '', nextHash);
     }
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [currentPage, activeBookingTab, selectedEqCategory]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    
+    let metaKey = currentPage;
+    if (currentPage === 'booking') {
+      if (activeBookingTab === 'equipment') {
+        metaKey = selectedEqCategory === 'Cameras' ? 'equipment/cameras' : 'equipment';
+      } else if (activeBookingTab === 'studios') {
+        metaKey = 'studios';
+      }
+    }
+
+    const metaData = pageMetadata[metaKey];
+    if (!metaData) return;
+
+    // Update Title
+    if (metaData.title) {
+      document.title = metaData.title;
+    }
+
+    // Helper to set or create meta tag
+    const setMetaTag = (attrName, attrValue, content) => {
+      let element = document.querySelector(`meta[${attrName}="${attrValue}"]`);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attrName, attrValue);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+
+    // Helper to set or create link tag
+    const setLinkTag = (rel, href) => {
+      let element = document.querySelector(`link[rel="${rel}"]`);
+      if (!element) {
+        element = document.createElement('link');
+        element.setAttribute('rel', rel);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('href', href);
+    };
+
+    // Apply meta tags
+    if (metaData.meta) {
+      metaData.meta.forEach(item => {
+        if (item.name) {
+          setMetaTag('name', item.name, item.content);
+        } else if (item.property) {
+          setMetaTag('property', item.property, item.content);
+        }
+      });
+    }
+
+    // Apply link tags
+    if (metaData.links) {
+      metaData.links.forEach(item => {
+        setLinkTag(item.rel, item.href);
+      });
+    }
+  }, [currentPage, activeBookingTab, selectedEqCategory]);
 
   // Sample data for interactive search/filtering
   const studios = [
@@ -335,7 +751,13 @@ function App() {
               <div className="window-search-bar">
                 <span>zuntra.com/channels</span>
               </div>
-              <span className="cal-availability-live"><span className="cal-live-pulse-dot"></span> Live</span>
+              <span 
+                className="cal-availability-live"
+                role="img"
+                aria-label="Studio available for booking today"
+              >
+                <span className="cal-live-pulse-dot"></span> Live
+              </span>
             </div>
             <div className="booking-mockup-layout">
               {/* Map view mockup */}
@@ -549,7 +971,7 @@ function App() {
         <div className="booking-graphic-wrap">
           <div className="equipment-mockup-row">
             <div className="eq-rental-row-chip glass">
-              <span className="eq-icon">🎥</span>
+              <span className="eq-icon" role="img" aria-label="Camera equipment rental category on Z01">🎥</span>
               <div className="eq-details">
                 <h4>RED Cinema</h4>
                 <p>₹12,499/day • 4.9★</p>
@@ -557,7 +979,7 @@ function App() {
               <span className="eq-status-badge available">Available</span>
             </div>
             <div className="eq-rental-row-chip glass">
-              <span className="eq-icon">📷</span>
+              <span className="eq-icon" role="img" aria-label="Camera equipment rental category on Z01">📷</span>
               <div className="eq-details">
                 <h4>Sony FX3</h4>
                 <p>₹1,499/day • 4.8★</p>
@@ -565,7 +987,7 @@ function App() {
               <span className="eq-status-badge available">Available</span>
             </div>
             <div className="eq-rental-row-chip glass">
-              <span className="eq-icon">🚁</span>
+              <span className="eq-icon" role="img" aria-label="Camera equipment rental category on Z01">🚁</span>
               <div className="eq-details">
                 <h4>DJI Ronin 4D</h4>
                 <p>₹1,999/day • 4.9★</p>
@@ -573,7 +995,7 @@ function App() {
               <span className="eq-status-badge limited">2 left</span>
             </div>
             <div className="eq-rental-row-chip glass">
-              <span className="eq-icon">💡</span>
+              <span className="eq-icon" role="img" aria-label="Camera equipment rental category on Z01">💡</span>
               <div className="eq-details">
                 <h4>ARRI SkyPanel</h4>
                 <p>₹1,299/day • 4.8★</p>
@@ -581,7 +1003,7 @@ function App() {
               <span className="eq-status-badge available">Available</span>
             </div>
             <div className="eq-rental-row-chip glass">
-              <span className="eq-icon">🎤</span>
+              <span className="eq-icon" role="img" aria-label="Camera equipment rental category on Z01">🎤</span>
               <div className="eq-details">
                 <h4>Zoom F8n</h4>
                 <p>₹799/day • 4.8★</p>
@@ -599,88 +1021,116 @@ function App() {
             <p>All gear inspected, cleaned and ready to ship.</p>
           </div>
 
+          {/* CATEGORY FILTERS */}
+          <div className="booking-subnav glass flex-wrap-dual-row" style={{ maxWidth: '600px', margin: '0 auto 2.5rem', justifyContent: 'center' }}>
+            {['All', 'Cameras', 'Lenses', 'Lighting', 'Audio'].map(cat => (
+              <button
+                key={cat}
+                className={`subnav-btn ${selectedEqCategory === cat ? 'active' : ''}`}
+                onClick={() => {
+                  setSelectedEqCategory(cat);
+                  if (cat === 'Cameras') {
+                    window.location.hash = 'equipment/cameras';
+                  } else {
+                    window.location.hash = 'equipment';
+                  }
+                }}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
           <div className="booking-catalog-grid">
-            <div className="catalog-card-item glass">
-              <div className="catalog-card-header-row">
-                <h4>RED Digital Cinema</h4>
-                <span className="cat-type-badge cinema">Cinema</span>
-              </div>
-              <p className="catalog-desc">8K Monstro - Full Frame - ND Filter Pack - Case included.</p>
-              <div className="catalog-pill-row">
-                <span className="spec-tag">8K Raw</span>
-                <span className="spec-tag">High Frame Rate</span>
-                <span className="spec-tag">Low Noise</span>
-              </div>
-              <div className="catalog-footer">
-                <div>
-                  <span className="catalog-price">₹12,499</span>
-                  <span className="catalog-price-sub">/day</span>
-                  <p className="catalog-rentals-count">★ 4.9 • 312 rentals</p>
+            {(selectedEqCategory === 'All' || selectedEqCategory === 'Cameras') && (
+              <div className="catalog-card-item glass">
+                <div className="catalog-card-header-row">
+                  <h4>RED Digital Cinema</h4>
+                  <span className="cat-type-badge cinema">Cinema</span>
                 </div>
-                <button className="btn-primary-blue-sm">Book Now</button>
+                <p className="catalog-desc">8K Monstro - Full Frame - ND Filter Pack - Case included.</p>
+                <div className="catalog-pill-row">
+                  <span className="spec-tag" role="img" aria-label="Camera sensor and resolution specifications">⚙️ 8K Raw</span>
+                  <span className="spec-tag">High Frame Rate</span>
+                  <span className="spec-tag">Low Noise</span>
+                </div>
+                <div className="catalog-footer">
+                  <div>
+                    <span className="catalog-price">₹12,499</span>
+                    <span className="catalog-price-sub">/day</span>
+                    <p className="catalog-rentals-count">★ 4.9 • 312 rentals</p>
+                  </div>
+                  <button className="btn-primary-blue-sm">Book Now</button>
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="catalog-card-item glass">
-              <div className="catalog-card-header-row">
-                <h4>Sony FX3</h4>
-                <span className="cat-type-badge popular">Popular</span>
-              </div>
-              <p className="catalog-desc">Full Frame - 4K100fps - S-Log3 - Compact Cinema Body.</p>
-              <div className="catalog-pill-row">
-                <span className="spec-tag">4K120</span>
-                <span className="spec-tag">Compact</span>
-                <span className="spec-tag">Low Light King</span>
-              </div>
-              <div className="catalog-footer">
-                <div>
-                  <span className="catalog-price">₹1,499</span>
-                  <span className="catalog-price-sub">/day</span>
-                  <p className="catalog-rentals-count">★ 4.8 • 487 rentals</p>
+            {(selectedEqCategory === 'All' || selectedEqCategory === 'Cameras') && (
+              <div className="catalog-card-item glass">
+                <div className="catalog-card-header-row">
+                  <h4>Sony FX3</h4>
+                  <span className="cat-type-badge popular">Popular</span>
                 </div>
-                <button className="btn-primary-blue-sm">Book Now</button>
+                <p className="catalog-desc">Full Frame - 4K100fps - S-Log3 - Compact Cinema Body.</p>
+                <div className="catalog-pill-row">
+                  <span className="spec-tag" role="img" aria-label="Camera sensor and resolution specifications">⚙️ 4K120</span>
+                  <span className="spec-tag">Compact</span>
+                  <span className="spec-tag">Low Light King</span>
+                </div>
+                <div className="catalog-footer">
+                  <div>
+                    <span className="catalog-price">₹1,499</span>
+                    <span className="catalog-price-sub">/day</span>
+                    <p className="catalog-rentals-count">★ 4.8 • 487 rentals</p>
+                  </div>
+                  <button className="btn-primary-blue-sm">Book Now</button>
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="catalog-card-item glass">
-              <div className="catalog-card-header-row">
-                <h4>DJI Ronin 4D</h4>
-                <span className="cat-type-badge premium">Premium</span>
-              </div>
-              <p className="catalog-desc">8K - Integrated Gimbal System - LiDAR Focus - Full Frame.</p>
-              <div className="catalog-pill-row">
-                <span className="spec-tag">8K Raw</span>
-                <span className="spec-tag">Gimbal Built-in</span>
-              </div>
-              <div className="catalog-footer">
-                <div>
-                  <span className="catalog-price">₹1,899</span>
-                  <span className="catalog-price-sub">/day</span>
-                  <p className="catalog-rentals-count">★ 4.9 • 211 rentals</p>
+            {(selectedEqCategory === 'All' || selectedEqCategory === 'Cameras') && (
+              <div className="catalog-card-item glass">
+                <div className="catalog-card-header-row">
+                  <h4>DJI Ronin 4D</h4>
+                  <span className="cat-type-badge premium">Premium</span>
                 </div>
-                <button className="btn-primary-blue-sm">Book Now</button>
+                <p className="catalog-desc">8K - Integrated Gimbal System - LiDAR Focus - Full Frame.</p>
+                <div className="catalog-pill-row">
+                  <span className="spec-tag" role="img" aria-label="Camera sensor and resolution specifications">⚙️ 8K Raw</span>
+                  <span className="spec-tag">Gimbal Built-in</span>
+                </div>
+                <div className="catalog-footer">
+                  <div>
+                    <span className="catalog-price">₹1,899</span>
+                    <span className="catalog-price-sub">/day</span>
+                    <p className="catalog-rentals-count">★ 4.9 • 211 rentals</p>
+                  </div>
+                  <button className="btn-primary-blue-sm">Book Now</button>
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="catalog-card-item glass">
-              <div className="catalog-card-header-row">
-                <h4>ARRI SkyPanel S60</h4>
-                <span className="cat-type-badge pro">Pro</span>
-              </div>
-              <p className="catalog-desc">LED Panel - Bi-Colour - DMX Control - Soft Light King.</p>
-              <div className="catalog-pill-row">
-                <span className="spec-tag">Soft Light</span>
-                <span className="spec-tag">DMX Ready</span>
-              </div>
-              <div className="catalog-footer">
-                <div>
-                  <span className="catalog-price">₹1,299</span>
-                  <span className="catalog-price-sub">/day</span>
-                  <p className="catalog-rentals-count">★ 4.7 • 189 rentals</p>
+            {(selectedEqCategory === 'All' || selectedEqCategory === 'Lighting') && (
+              <div className="catalog-card-item glass">
+                <div className="catalog-card-header-row">
+                  <h4>ARRI SkyPanel S60</h4>
+                  <span className="cat-type-badge pro">Pro</span>
                 </div>
-                <button className="btn-primary-blue-sm">Book Now</button>
+                <p className="catalog-desc">LED Panel - Bi-Colour - DMX Control - Soft Light King.</p>
+                <div className="catalog-pill-row">
+                  <span className="spec-tag">Soft Light</span>
+                  <span className="spec-tag">DMX Ready</span>
+                </div>
+                <div className="catalog-footer">
+                  <div>
+                    <span className="catalog-price">₹1,299</span>
+                    <span className="catalog-price-sub">/day</span>
+                    <p className="catalog-rentals-count">★ 4.7 • 189 rentals</p>
+                  </div>
+                  <button className="btn-primary-blue-sm">Book Now</button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 
@@ -1677,6 +2127,11 @@ function App() {
               window.scrollTo(0, 0);
             }}>
               <div className="card-img-placeholder orange-bg gradient">
+                <img 
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100%' height='100%' fill='none'/></svg>"
+                  alt="5 Cinematography Techniques That Will Elevate Your Next Short Film — Z01 blog"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }}
+                />
                 <span className="card-cat-badge">Filmmaking</span>
               </div>
               <div className="card-content">
@@ -1714,6 +2169,11 @@ function App() {
               window.scrollTo(0, 0);
             }}>
               <div className="card-img-placeholder purple-bg">
+                <img 
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100%' height='100%' fill='none'/></svg>"
+                  alt="How to Negotiate Equipment Rental Rates Like a Pro — Z01 blog"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }}
+                />
                 <span className="card-cat-badge">Production Tips</span>
               </div>
               <div className="card-content">
@@ -1751,6 +2211,11 @@ function App() {
               window.scrollTo(0, 0);
             }}>
               <div className="card-img-placeholder blue-bg">
+                <img 
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100%' height='100%' fill='none'/></svg>"
+                  alt="Virtual Production Studios: The New Frontier for Indie Filmmakers — Z01 blog"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }}
+                />
                 <span className="card-cat-badge">Studio Booking</span>
               </div>
               <div className="card-content">
@@ -1788,6 +2253,11 @@ function App() {
               window.scrollTo(0, 0);
             }}>
               <div className="card-img-placeholder yellow-bg">
+                <img 
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100%' height='100%' fill='none'/></svg>"
+                  alt="Monetizing Your Production Skills: From Freelancer to Studio Owner — Z01 blog"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }}
+                />
                 <span className="card-cat-badge">Creator Economy</span>
               </div>
               <div className="card-content">
@@ -1830,6 +2300,11 @@ function App() {
               window.scrollTo(0, 0);
             }}>
               <div className="card-img-placeholder green-bg">
+                <img 
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100%' height='100%' fill='none'/></svg>"
+                  alt="Inside a ₹50L Short Film: Budget Breakdown & What We Learned — Z01 blog"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }}
+                />
                 <span className="card-cat-badge">Case Study</span>
               </div>
               <div className="card-content">
@@ -1867,6 +2342,11 @@ function App() {
               window.scrollTo(0, 0);
             }}>
               <div className="card-img-placeholder pink-bg">
+                <img 
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100%' height='100%' fill='none'/></svg>"
+                  alt="Finding & Retaining Top-Tier Crew in a Competitive Market — Z01 blog"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }}
+                />
                 <span className="card-cat-badge">Crew Hiring</span>
               </div>
               <div className="card-content">
@@ -4947,6 +5427,593 @@ function App() {
     );
   };
 
+  const renderAboutPage = () => {
+    return (
+      <div className="about-page-view container fade-in" style={{ padding: '4rem 2rem 6rem' }}>
+        {/* HERO SECTION */}
+        <div className="about-hero text-center mb-16" style={{ maxWidth: '800px', margin: '0 auto 5rem' }}>
+          <span className="section-badge bg-orange mb-4">OUR STORY</span>
+          <h1 className="hero-title mb-6" style={{ fontSize: '3.2rem', fontWeight: '800', lineHeight: '1.2' }}>
+            The Rental Marketplace <br />
+            <span className="text-gradient">Built for Creators</span>
+          </h1>
+          <p className="hero-desc text-muted" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+            Z01 connects creators, production houses, and brands with Chennai's premier photography studios, recording sets, cinema gear, and verified industry crew — all in one seamless booking platform.
+          </p>
+        </div>
+
+        {/* TEAM & OFFICE IMAGE SECTION */}
+        <div className="about-images-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', marginBottom: '6rem' }}>
+          <div className="about-image-card glass" style={{ borderRadius: '16px', overflow: 'hidden', padding: '1rem' }}>
+            <img 
+              src="/team_in_chennai.png" 
+              alt="Z01 team in Chennai" 
+              style={{ width: '100%', borderRadius: '12px', height: '350px', objectFit: 'cover' }} 
+            />
+            <div style={{ padding: '1rem 0.5rem 0.5rem' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.25rem' }}>Our Team</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Filmmakers, builders, and developers working to support Chennai's local creative ecosystem.</p>
+            </div>
+          </div>
+          <div className="about-image-card glass" style={{ borderRadius: '16px', overflow: 'hidden', padding: '1rem' }}>
+            <img 
+              src="/office_in_chennai.png" 
+              alt="Z01 office and workspace in Chennai" 
+              style={{ width: '100%', borderRadius: '12px', height: '350px', objectFit: 'cover' }} 
+            />
+            <div style={{ padding: '1rem 0.5rem 0.5rem' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.25rem' }}>Our Office</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Located in the heart of Chennai, designed as an active sandbox for creative collaboration.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* MISSION & VISION */}
+        <div className="about-mission-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginBottom: '6rem' }}>
+          <div>
+            <h2 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '1.5rem' }}>Our Mission</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+              For decades, production planning was a messy process of phone calls, untrusted vendors, hidden pricing, and administrative overhead. 
+            </p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.7' }}>
+              We started Z01 with one clear goal: to bring transparency, ease, and security to the production supply chain. Whether you need a simple photography studio, an ARRI lighting setup, or a crew, Z01 gets it booked in minutes.
+            </p>
+          </div>
+          <div className="glass" style={{ padding: '2.5rem', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: '#F59E0B' }}>🛡️ Trust & Safety First</h3>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+              Every single listing on Z01 goes through physical verification by our Chennai operations team.
+            </p>
+            <ul style={{ listStyleType: 'none', padding: '0', display: 'flex', flexDirection: 'column', gap: '0.75rem', color: 'var(--text-light)' }}>
+              <li>✓ 100% physically inspected studios</li>
+              <li>✓ Insured and quality-certified equipment</li>
+              <li>✓ Real-time availability — zero double bookings</li>
+              <li>✓ Secure escrow-based payment terms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const renderContactPage = () => {
+    return (
+      <div className="contact-page-view container fade-in" style={{ padding: '4rem 2rem 6rem' }}>
+        {/* HERO */}
+        <div className="contact-hero text-center mb-16" style={{ maxWidth: '800px', margin: '0 auto 4rem' }}>
+          <span className="section-badge bg-blue mb-4">GET IN TOUCH</span>
+          <h1 className="hero-title mb-6" style={{ fontSize: '3.2rem', fontWeight: '800', lineHeight: '1.2' }}>
+            Contact <span className="text-gradient">Z01 Support</span>
+          </h1>
+          <p className="hero-desc text-muted" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+            Have questions about booking studios, equipment rentals, listing your space, or partnerships? We're here to help!
+          </p>
+        </div>
+
+        <div className="contact-layout" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem' }}>
+          {/* LEFT: FORM AND DETAILS */}
+          <div className="contact-info-form-column">
+            <div className="glass" style={{ padding: '2.5rem', borderRadius: '16px', marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', marginBottom: '1.5rem' }}>Send Us a Message</h2>
+              <form onSubmit={(e) => { e.preventDefault(); alert('Message sent successfully!'); }} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Name</label>
+                    <input type="text" required placeholder="Your Name" className="glass" style={{ padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)', color: '#fff' }} />
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Email</label>
+                    <input type="email" required placeholder="yourname@domain.com" className="glass" style={{ padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)', color: '#fff' }} />
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Subject</label>
+                  <input type="text" required placeholder="How can we help?" className="glass" style={{ padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)', color: '#fff' }} />
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Message</label>
+                  <textarea rows="5" required placeholder="Write your message here..." className="glass" style={{ padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)', color: '#fff', resize: 'vertical' }}></textarea>
+                </div>
+                <button type="submit" className="btn-primary" style={{ padding: '0.8rem 2rem', fontWeight: '600', alignSelf: 'flex-start' }}>Send Message</button>
+              </form>
+            </div>
+            
+            {/* CONTACT DETAILS */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', paddingLeft: '0.5rem' }}>
+              <div>
+                <h4 style={{ color: '#F59E0B', fontSize: '1.1rem', fontWeight: '600', marginBottom: '0.5rem' }}>📧 Email Us</h4>
+                <p style={{ color: 'var(--text-muted)' }}>support@z01.in</p>
+                <p style={{ color: 'var(--text-muted)' }}>partners@z01.in</p>
+              </div>
+              <div>
+                <h4 style={{ color: '#3B82F6', fontSize: '1.1rem', fontWeight: '600', marginBottom: '0.5rem' }}>📍 Office Location</h4>
+                <p style={{ color: 'var(--text-muted)' }}>Z01 Creative Spaces,</p>
+                <p style={{ color: 'var(--text-muted)' }}>Adyar, Chennai - 600020</p>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT: MAP GRAPHIC */}
+          <div className="contact-map-column">
+            <div className="glass" style={{ padding: '1rem', borderRadius: '16px', height: '100%' }}>
+              <img 
+                src="/map_of_chennai_office.png" 
+                alt="Z01 office location in Chennai" 
+                style={{ width: '100%', borderRadius: '12px', height: '480px', objectFit: 'cover' }} 
+              />
+              <div style={{ padding: '1.25rem 0.5rem 0.5rem' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.25rem' }}>Visit Our HQ</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Located in the hub of Adyar, Chennai. Drop by for a cup of coffee and a chat about your next big production project.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const renderPolicyPage = (type) => {
+    let title = "";
+    let content = null;
+
+    if (type === 'terms') {
+      title = "Terms of Service";
+      content = (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', color: 'var(--text-muted)' }}>
+          <p>Last updated: June 15, 2026</p>
+          <p>Welcome to Z01. These Terms of Service ("Terms") govern your access to and use of our website, mobile applications, and online marketplace services (collectively, the "Platform") for booking creative studios, renting equipment, and hiring production crew.</p>
+          
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>1. Contractual Relationship</h3>
+          <p>By accessing or using our Platform, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you may not access or use the Platform. Z01 acts as an intermediary marketplace connecting creators ("Users") with verified space, gear, and crew providers ("Vendors").</p>
+
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>2. Marketplace Bookings & Escrow System</h3>
+          <p>To secure a booking for studios or equipment, Users are required to pay a booking fee/security deposit (typically 20%) through our integrated payment processor. Z01 holds this payment securely in escrow. Payouts to Vendors are initiated within 24 hours of successful shoot completion, subject to terms of dispute resolution.</p>
+
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>3. Cancellations & Refunds</h3>
+          <p>Cancellations are subject to the specific policy selected by the Vendor and displayed at the time of checkout. Standard cancellation terms permit a full refund if requested at least 48 hours prior to the scheduled shoot time. Late cancellations are subject to forfeiture of the booking deposit.</p>
+
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>4. Equipment Damage & Liability</h3>
+          <p>Users renting camera and production equipment are responsible for returning all items in the exact condition received. Standard damage waivers cover minor wear and tear, but Users remain liable for major damage, loss, or theft as mediated under our protection policies.</p>
+        </div>
+      );
+    } else if (type === 'privacy') {
+      title = "Privacy Policy";
+      content = (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', color: 'var(--text-muted)' }}>
+          <p>Last updated: June 15, 2026</p>
+          <p>Z01 ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our Platform, log into the vendor portal, or book services across Chennai.</p>
+
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>1. Information We Collect</h3>
+          <p>We collect information that you provide directly to us when creating a creator profile, registering as a vendor, submitting verification IDs, or making UPI/card payments. This includes your name, contact details, portfolio links, and transaction logs.</p>
+
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>2. How We Use Your Data</h3>
+          <p>We use the collected information to process your bookings, verify vendor listings, facilitate escrow payouts, protect against fraud, and send notifications regarding updates, special rewards, or platform support.</p>
+
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>3. Data Sharing & Intermediary Protection</h3>
+          <p>We do not sell your personal data. We share relevant contact details only between matching Users and Vendors after a booking is confirmed to facilitate logistics, set access, or crew coordination.</p>
+        </div>
+      );
+    } else if (type === 'cookies') {
+      title = "Cookie Policy";
+      content = (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', color: 'var(--text-muted)' }}>
+          <p>Last updated: June 15, 2026</p>
+          <p>This Cookie Policy explains how Z01 uses cookies and similar tracking technologies on our Platform to deliver, measure, and improve your user experience.</p>
+
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>1. What Are Cookies?</h3>
+          <p>Cookies are small text files placed on your computer or mobile device when you browse websites. We use them to keep you logged in, remember your cart items or category filter preferences, and track anonymous platform usage stats.</p>
+
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>2. Categories of Cookies We Use</h3>
+          <ul style={{ paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <li>• <strong>Essential Cookies</strong>: Required for logging in, routing hashes, and checking active tabs.</li>
+            <li>• <strong>Preferences Cookies</strong>: Remember settings like your layout views or selected sub-categories.</li>
+            <li>• <strong>Analytics Cookies</strong>: Help us measure aggregate conversion rates, page views, and traffic flow.</li>
+          </ul>
+
+          <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '1rem' }}>3. Managing Your Cookie Preferences</h3>
+          <p>Most web browsers allow you to control cookies through their settings settings. Blocking essential cookies may prevent certain interactive features of Z01 (such as instant checkout) from functioning correctly.</p>
+        </div>
+      );
+    }
+
+    return (
+      <div className="policy-page-view container fade-in" style={{ padding: '4rem 2rem 6rem', maxWidth: '800px', margin: '0 auto' }}>
+        <h1 className="hero-title mb-6" style={{ fontSize: '2.5rem', fontWeight: '800', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1.5rem', marginBottom: '2.5rem' }}>
+          {title}
+        </h1>
+        {content}
+      </div>
+    );
+  };
+
+  const renderCareersPage = () => {
+    const roles = [
+      { title: "Senior Frontend Engineer (React/Vite)", department: "Engineering", location: "Chennai (Adyar)", type: "Full-Time", icon: "⚛️" },
+      { title: "Marketplace Operations Manager", department: "Operations", location: "Chennai (Adyar)", type: "Full-Time", icon: "⚡" },
+      { title: "Host Relations & Verification Officer", department: "Trust & Safety", location: "Chennai", type: "On-Field / Hybrid", icon: "🛡️" },
+      { title: "Product Designer (UI/UX)", department: "Product", location: "Chennai (Adyar)", type: "Full-Time", icon: "🎨" }
+    ];
+
+    return (
+      <div className="careers-page-view container fade-in" style={{ padding: '4rem 2rem 6rem' }}>
+        {/* HERO */}
+        <div className="careers-hero text-center mb-16" style={{ maxWidth: '800px', margin: '0 auto 4rem' }}>
+          <span className="section-badge bg-orange mb-4">WE'RE HIRING</span>
+          <h1 className="hero-title mb-6" style={{ fontSize: '3.2rem', fontWeight: '800', lineHeight: '1.2' }}>
+            Build the Future of <br />
+            <span className="text-gradient">Creative Production</span>
+          </h1>
+          <p className="hero-desc text-muted" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+            Z01 is Chennai's premier rental marketplace for filmmakers, photographers, and brands. Join us in building tools that make studio, equipment, and crew booking simple, transparent, and secure.
+          </p>
+        </div>
+
+        {/* TEAM PHOTO PANEL */}
+        <div className="careers-team-photo-section glass" style={{ padding: '1.25rem', borderRadius: '20px', marginBottom: '5rem', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <img 
+            src="/team_working_in_chennai_office.png" 
+            alt="Z01 team working in the Chennai office" 
+            style={{ width: '100%', borderRadius: '12px', height: '450px', objectFit: 'cover' }} 
+          />
+          <div style={{ padding: '1.25rem 0.5rem 0.25rem' }}>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '600', marginBottom: '0.25rem' }}>Life at Z01</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>We are a high-agency, collaborative team working in the heart of Chennai to empower local creators.</p>
+          </div>
+        </div>
+
+        {/* OPEN ROLES */}
+        <div className="open-roles-section" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div className="section-header text-center mb-12">
+            <h2>Current Openings</h2>
+            <p className="text-muted" style={{ marginTop: '0.5rem' }}>Find your next challenge and join us in Chennai.</p>
+          </div>
+          <div className="roles-list-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2.5rem' }}>
+            {roles.map((job, idx) => (
+              <div className="job-card-item glass" key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.75rem 2rem', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', transition: 'transform 0.2s ease, border-color 0.2s ease' }}>
+                <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                  <div 
+                    className="job-role-icon-box" 
+                    style={{ width: '50px', height: '50px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}
+                    role="img"
+                    aria-label={`${job.title} open role at Z01`}
+                  >
+                    {job.icon}
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.35rem' }}>{job.title}</h3>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>{job.department} • {job.location} • {job.type}</p>
+                  </div>
+                </div>
+                <button className="btn-primary-blue-sm" style={{ padding: '0.6rem 1.5rem' }} onClick={() => alert(`Applying for ${job.title} will open soon!`)}>Apply Now</button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const renderSitemapPage = () => {
+    const sitemapLinks = [
+      {
+        section: "Main Navigation",
+        links: [
+          { name: "Home Marketplace", hash: "home", desc: "Browse and book production resources in Chennai." },
+          { name: "Equipment Rental Catalogue", hash: "equipment", desc: "Rent camera packages, lenses, lighting, and audio." },
+          { name: "Cinema & DSLR Cameras", hash: "equipment/cameras", desc: "Dedicated list of professional cinema camera rentals." },
+          { name: "Featured Studios", hash: "studios", desc: "Photography, recording, event sets, and editing suites." },
+          { name: "Crew Marketplace", hash: "crew", desc: "Hire vetted local cinematographers, editors, and assistants." },
+          { name: "How It Works", hash: "how-it-works", desc: "A guide for creators and vendors booking on Z01." }
+        ]
+      },
+      {
+        section: "Company & Portals",
+        links: [
+          { name: "About Us", hash: "about", desc: "Our history, mission, safety standards, and office locations." },
+          { name: "Contact Support", hash: "contact", desc: "Reach our Chennai support desk, partner teams, or visit HQ." },
+          { name: "Careers at Z01", hash: "careers", desc: "Explore active engineering, design, and operations jobs." },
+          { name: "Vendor & Host Portal", hash: "vendor-portal", desc: "List creative spaces or gear and manage checkout payouts." }
+        ]
+      },
+      {
+        section: "Support & Legal Guidelines",
+        links: [
+          { name: "Help Center / FAQs", hash: "help", desc: "Answers to common questions about bookings and deposits." },
+          { name: "Terms of Service", hash: "terms", desc: "Standard contractual policies, cancellations, and waivers." },
+          { name: "Privacy Policy", hash: "privacy", desc: "Data protection guidelines, security, and profile validation." },
+          { name: "Cookie Policy", hash: "cookies", desc: "Manage essential, analytics, and preference cookie preferences." }
+        ]
+      }
+    ];
+
+    return (
+      <div className="sitemap-page-view container fade-in" style={{ padding: '4rem 2rem 6rem', maxWidth: '900px', margin: '0 auto' }}>
+        {/* HERO */}
+        <div className="sitemap-hero text-center mb-16" style={{ maxWidth: '800px', margin: '0 auto 4rem' }}>
+          <span className="section-badge bg-blue mb-4">SITEMAP INDEX</span>
+          <h1 className="hero-title mb-6" style={{ fontSize: '2.8rem', fontWeight: '800', lineHeight: '1.2' }}>
+            Z01 Platform <span className="text-gradient">Sitemap</span>
+          </h1>
+          <p className="hero-desc text-muted" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
+            Explore every active resource, support page, and user portal across Chennai's premium creative rental marketplace.
+          </p>
+        </div>
+
+        {/* MAP SECTIONS */}
+        <div className="sitemap-sections-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '3rem' }}>
+          {sitemapLinks.map((sec, sIdx) => (
+            <div key={sIdx} className="glass" style={{ padding: '2.5rem', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.5rem', color: '#60A5FA', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.75rem' }}>{sec.section}</h2>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                {sec.links.map((link, lIdx) => (
+                  <div key={lIdx} style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                    <a 
+                      href={`#${link.hash}`} 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (link.hash === 'equipment') {
+                          setCurrentPage('booking');
+                          setActiveBookingTab('equipment');
+                          setSelectedEqCategory('All');
+                        } else if (link.hash === 'equipment/cameras') {
+                          setCurrentPage('booking');
+                          setActiveBookingTab('equipment');
+                          setSelectedEqCategory('Cameras');
+                        } else if (link.hash === 'studios') {
+                          setCurrentPage('booking');
+                          setActiveBookingTab('studios');
+                        } else {
+                          setCurrentPage(link.hash);
+                        }
+                        window.scrollTo(0, 0);
+                      }} 
+                      style={{ fontSize: '1.05rem', fontWeight: '600', color: '#fff', textDecoration: 'none', transition: 'color 0.2s' }}
+                      onMouseEnter={(e) => e.target.style.color = '#3B82F6'}
+                      onMouseLeave={(e) => e.target.style.color = '#fff'}
+                    >
+                      {link.name} &rarr;
+                    </a>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: '1.4' }}>{link.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  const renderPressPage = () => {
+    return (
+      <div className="press-page-view container fade-in" style={{ padding: '4rem 2rem 6rem', maxWidth: '900px', margin: '0 auto' }}>
+        {/* HERO */}
+        <div className="press-hero text-center mb-16" style={{ maxWidth: '800px', margin: '0 auto 4rem' }}>
+          <span className="section-badge bg-purple mb-4">MEDIA RESOURCES</span>
+          <h1 className="hero-title mb-6" style={{ fontSize: '3.2rem', fontWeight: '800', lineHeight: '1.2' }}>
+            Z01 Press Kit
+          </h1>
+          <p className="hero-desc text-muted" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+            Official logos, brand assets, facts, and press guidelines for media and journalistic coverage.
+          </p>
+        </div>
+
+        {/* LOGO DOWNLOAD ASSETS */}
+        <div className="press-assets-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', marginBottom: '4rem' }}>
+          <div className="press-asset-card glass" style={{ borderRadius: '16px', padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ width: '100%', height: '140px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', position: 'relative' }}>
+              <img 
+                src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100%' height='100%' fill='none'/></svg>"
+                alt="Download Z01 logo — press and media use"
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }}
+              />
+              <span style={{ fontSize: '2rem', fontWeight: '800', letterSpacing: '2px', color: '#fff' }}>ZO1</span>
+            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>Primary Logo Asset</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>High-resolution SVG & PNG formats on dark background.</p>
+            <button className="btn-primary-blue-sm" onClick={() => alert('Press assets downloading...')}>Download Logo (PNG/SVG)</button>
+          </div>
+
+          <div className="press-asset-card glass" style={{ borderRadius: '16px', padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ width: '100%', height: '140px', background: '#fff', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+              <span style={{ fontSize: '2rem', fontWeight: '800', letterSpacing: '2px', color: '#111' }}>ZO1</span>
+            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>Secondary Light Logo</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>Light background variant for print and editorial placements.</p>
+            <button className="btn-primary-blue-sm" onClick={() => alert('Press assets downloading...')}>Download Logo (PNG/SVG)</button>
+          </div>
+        </div>
+
+        {/* QUICK FACTS */}
+        <div className="press-facts-box glass" style={{ padding: '2.5rem', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.25rem', color: '#A78BFA' }}>Company Quick Facts</h2>
+          <ul style={{ listStyleType: 'none', padding: '0', display: 'flex', flexDirection: 'column', gap: '0.75rem', color: 'var(--text-muted)' }}>
+            <li>• <strong>Founding Date</strong>: January 2026</li>
+            <li>• <strong>Headquarters</strong>: Adyar, Chennai, India</li>
+            <li>• <strong>Service Focus</strong>: Booking creative spaces, photography/recording studios, production gear, and crew.</li>
+            <li>• <strong>Press Contact</strong>: <a href="mailto:press@z01.in" style={{ color: '#3B82F6' }}>press@z01.in</a></li>
+          </ul>
+        </div>
+      </div>
+    );
+  };
+
+  const renderListYourStudioPage = () => {
+    const onboardingSteps = [
+      { step: "01", title: "Create Account", desc: "Sign up as a Z01 vendor and set up your business profile.", icon: "📝" },
+      { step: "02", title: "List Your Space or Gear", desc: "Upload photos, set rates, calendar availability and access guidelines.", icon: "🏢" },
+      { step: "03", title: "Verify Your Listings", desc: "Our team physical-verifies your assets for trust compliance.", icon: "🛡️", isVerifyStep: true },
+      { step: "04", title: "Start Earning", desc: "Receive instant booking requests and get paid securely via escrow.", icon: "💰" }
+    ];
+
+    return (
+      <div className="list-studio-page-view container fade-in" style={{ padding: '4rem 2rem 6rem' }}>
+        {/* HERO */}
+        <div className="list-hero text-center mb-16" style={{ maxWidth: '800px', margin: '0 auto 4rem' }}>
+          <span className="section-badge bg-blue mb-4">PARTNER WITH US</span>
+          <h1 className="hero-title mb-6" style={{ fontSize: '3.2rem', fontWeight: '800', lineHeight: '1.2' }}>
+            List Your Studio, Gear <br />
+            <span className="text-gradient">or Crew on Z01</span>
+          </h1>
+          <p className="hero-desc text-muted" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+            Join Chennai's premium rental marketplace. List your production asset today and reach thousands of filmmakers, agencies, and creators.
+          </p>
+          <div style={{ marginTop: '2rem' }}>
+            <button className="btn-level-blue" onClick={() => setCurrentPage('vendor-portal')}>Access Vendor Portal</button>
+          </div>
+        </div>
+
+        {/* ONBOARDING STEPS */}
+        <div className="onboarding-steps-section" style={{ marginBottom: '5rem' }}>
+          <div className="section-header text-center mb-12">
+            <h2>How to Get Started</h2>
+            <p className="text-muted" style={{ marginTop: '0.5rem' }}>Simple 4-step onboarding to publish your listings.</p>
+          </div>
+          <div className="steps-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', marginTop: '2.5rem' }}>
+            {onboardingSteps.map((s, idx) => (
+              <div className="step-unit-card glass" key={idx} style={{ padding: '2rem 1.5rem', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', position: 'relative' }}>
+                <div 
+                  className="step-icon-glow" 
+                  style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '1.25rem' }}
+                  role={s.isVerifyStep ? "img" : undefined}
+                  aria-label={s.isVerifyStep ? "Step to verify your vendor account on Z01" : undefined}
+                >
+                  {s.icon}
+                </div>
+                <span style={{ fontSize: '0.8rem', color: '#3B82F6', fontWeight: '700' }}>STEP {s.step}</span>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: '600', margin: '0.5rem 0' }}>{s.title}</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: '1.5' }}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* DASHBOARD PREVIEW */}
+        <div className="dashboard-preview-section glass" style={{ padding: '1.5rem', borderRadius: '20px', marginBottom: '5rem', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', padding: '0 0.5rem' }}>
+            <div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '600' }}>Host Dashboard Preview</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Monitor bookings, adjust calendar settings, track active escrow and request payouts.</p>
+            </div>
+          </div>
+          <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
+            <img 
+              src="/vendor_dashboard_screenshot.png" 
+              alt="Z01 vendor dashboard for managing listings and bookings" 
+              style={{ width: '100%', display: 'block', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px' }} 
+            />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const renderVendorPortalPage = () => {
+    return (
+      <div className="vendor-portal-view container fade-in" style={{ padding: '4rem 2rem 6rem' }}>
+        {/* HERO */}
+        <div className="vendor-hero text-center mb-16" style={{ maxWidth: '800px', margin: '0 auto 4rem' }}>
+          <span className="section-badge bg-purple mb-4">VENDORS & HOSTS</span>
+          <h1 className="hero-title mb-6" style={{ fontSize: '3.2rem', fontWeight: '800', lineHeight: '1.2' }}>
+            Maximize Your Studio <br />
+            <span className="text-gradient-purple-pink">& Gear Earnings</span>
+          </h1>
+          <p className="hero-desc text-muted" style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
+            List your creative spaces, camera packages, lighting setups, or crew profiles. Reach Chennai's largest creator community and manage bookings on autopilot.
+          </p>
+          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+            <button className="btn-level-purple" onClick={() => alert('Registration opening soon!')}>Register as Vendor</button>
+            <button className="btn-level-glass" onClick={() => alert('Logins are secure and invite-only.')}>Log In to Portal</button>
+          </div>
+        </div>
+
+        {/* METRICS ROW */}
+        <div className="vendor-metrics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '4rem' }}>
+          <div className="glass" style={{ padding: '1.5rem', borderRadius: '12px' }}>
+            <span style={{ fontSize: '2rem' }}>📈</span>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: '0.5rem 0' }}>₹12.4L</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Average annual host earnings</p>
+          </div>
+          <div className="glass" style={{ padding: '1.5rem', borderRadius: '12px' }}>
+            <span style={{ fontSize: '2rem' }}>⚡</span>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: '0.5rem 0' }}>84%</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Average occupancy rate</p>
+          </div>
+          <div className="glass" style={{ padding: '1.5rem', borderRadius: '12px' }}>
+            <span style={{ fontSize: '2rem' }}>👥</span>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: '0.5rem 0' }}>14K+</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Verified active Chennai creators</p>
+          </div>
+          <div className="glass" style={{ padding: '1.5rem', borderRadius: '12px' }}>
+            <span style={{ fontSize: '2rem' }}>🛡️</span>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: '0.5rem 0' }}>100%</h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Escrow-protected payouts</p>
+          </div>
+        </div>
+
+        {/* DASHBOARD SCREENSHOT MOCKUP */}
+        <div className="vendor-screenshot-section glass" style={{ padding: '1.5rem', borderRadius: '20px', marginBottom: '5rem', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', padding: '0 0.5rem' }}>
+            <div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '600' }}>Vendor Dashboard Overview</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Real-time earnings tracking, active bookings grid, occupancy chart and instant settlement widgets.</p>
+            </div>
+            <span style={{ fontSize: '0.75rem', padding: '0.35rem 0.75rem', borderRadius: '20px', background: 'rgba(59, 130, 246, 0.1)', color: '#3B82F6', fontWeight: '600' }}>● Live Sandbox</span>
+          </div>
+          <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
+            <img 
+              src="/vendor_dashboard_screenshot.png" 
+              alt="Z01 vendor portal booking and earnings overview" 
+              style={{ width: '100%', display: 'block', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px' }} 
+            />
+          </div>
+        </div>
+
+        {/* BENEFITS */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '4rem', alignItems: 'center' }}>
+          <div>
+            <h2 style={{ fontSize: '2.2rem', fontWeight: '800', lineHeight: '1.3', marginBottom: '1.5rem' }}>Everything you need to <span className="text-gradient">run a rental business.</span></h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+              Listing is entirely free. You only pay a flat 3% checkout transaction charge when you successfully complete a booking.
+            </p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.6' }}>
+              We handle the SEO marketing, secure UPI escrow payments, client dispute mediation, and booking calendars so that you can focus on building outstanding spaces and maintaining gear.
+            </p>
+          </div>
+          <div className="glass" style={{ padding: '2.5rem', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1.5rem', color: '#A78BFA' }}>🚀 Vendor Benefits</h3>
+            <ul style={{ listStyleType: 'none', padding: '0', display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--text-light)' }}>
+              <li>✓ <strong>Automatic Calendar Syncing</strong>: Avoid double bookings with Google Calendar integration.</li>
+              <li>✓ <strong>Escrow Protection</strong>: Payouts are settled automatically to your UPI/bank in 24 hours.</li>
+              <li>✓ <strong>Insurance Protection</strong>: Integrated gear damage policies and security deposit waivers.</li>
+              <li>✓ <strong>Super Coins Program</strong>: Attract repeat bookings by offering cash-back coins.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // ==========================================
   // HELP AND DOCS VIEW (Frequently Asked Questions)
   // ==========================================
@@ -5108,7 +6175,12 @@ function App() {
 
           <div className="help-search-widget-wrap">
             <div className="help-search-widget glass">
-              <Search size={16} className="text-muted" />
+              <Search 
+                size={16} 
+                className="text-muted" 
+                role="img" 
+                aria-label="Search Z01 help articles" 
+              />
               <input
                 type="text"
                 placeholder="Search help articles..."
@@ -5378,12 +6450,19 @@ function App() {
               <div className="crew-panel-list">
                 {featuredPros.slice(0, 3).map((pro, index) => (
                   <div className="crew-mini-card glass" key={index}>
-                    <div className="pro-avatar-circle" style={{ background: pro.color }}>{pro.initial}</div>
+                    <div className="pro-avatar-circle" style={{ background: pro.color, position: 'relative' }}>
+                      <img 
+                        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100%' height='100%' fill='none'/></svg>"
+                        alt={`${pro.name}, ${pro.role} available for hire on Z01`}
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }}
+                      />
+                      {pro.initial}
+                    </div>
                     <div className="pro-mini-details">
                       <h4>{pro.name}</h4>
                       <p>{pro.role}</p>
                       <div className="pro-meta-info">
-                        <span>★ {pro.rating}</span>
+                        <span role="img" aria-label={`${pro.rating} out of 5 rating from past clients`}>★ {pro.rating}</span>
                         <span>• {pro.shoots} shoots</span>
                       </div>
                     </div>
@@ -5433,7 +6512,7 @@ function App() {
           <div className="crew-roles-grid margin-top-sm">
             {crewRoles.map((role) => (
               <div className="crew-role-card glass" key={role.id}>
-                <span className="role-icon">{role.icon}</span>
+                <span className="role-icon" role="img" aria-label="Hire production crew category on Z01">{role.icon}</span>
                 <h3>{role.name}</h3>
                 <p>{role.desc}</p>
                 <span className="role-pros-badge">{role.count}</span>
@@ -5452,13 +6531,20 @@ function App() {
             {featuredPros.map((pro, index) => (
               <div className="crew-pro-profile-card glass" key={index}>
                 <div className="pro-gradient-header" style={{ background: `linear-gradient(135deg, ${pro.color} 0%, rgba(0,0,0,0.8) 100%)` }}>
-                  <div className="pro-avatar-bubble" style={{ background: pro.color }}>{pro.initial}</div>
+                  <div className="pro-avatar-bubble" style={{ background: pro.color, position: 'relative' }}>
+                    <img 
+                      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100%' height='100%' fill='none'/></svg>"
+                      alt={`${pro.name}, ${pro.role} available for hire on Z01`}
+                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0 }}
+                    />
+                    {pro.initial}
+                  </div>
                 </div>
                 <div className="pro-profile-body text-center">
                   <h4>{pro.name}</h4>
                   <p className="pro-profile-role">{pro.role}</p>
                   <div className="pro-profile-rating">
-                    <span>★ {pro.rating}</span>
+                    <span role="img" aria-label={`${pro.rating} out of 5 rating from past clients`}>★ {pro.rating}</span>
                     <span className="divider">•</span>
                     <span>{pro.shoots} Shoots</span>
                   </div>
@@ -5642,7 +6728,7 @@ function App() {
                 const el = document.getElementById("explore-studio-categories");
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}>Explore Studios</button>
-              <button className="btn-how-outline">List Your Space</button>
+              <button className="btn-how-outline" onClick={() => { setCurrentPage('vendor-portal'); window.scrollTo(0,0); }}>List Your Space</button>
             </div>
 
             <div className="how-hero-checkpoints">
@@ -6001,8 +7087,8 @@ function App() {
                 <h2>Own A Studio?</h2>
                 <p>List your studio on ZO1 and start earning from thousands of creative professionals in your city.</p>
                 <div className="host-action-buttons margin-top-sm">
-                  <button className="btn-how-primary font-bold-medium">List Your Studio</button>
-                  <button className="btn-how-outline font-bold-medium" style={{ marginLeft: "0.75rem" }}>How Hosting Works</button>
+                  <button className="btn-how-primary font-bold-medium" onClick={() => { setCurrentPage('vendor-portal'); window.scrollTo(0,0); }}>List Your Studio</button>
+                  <button className="btn-how-outline font-bold-medium" style={{ marginLeft: "0.75rem" }} onClick={() => { setCurrentPage('vendor-portal'); window.scrollTo(0,0); }}>How Hosting Works</button>
                 </div>
               </div>
               <div className="host-estimate-earnings-side text-center">
@@ -6053,7 +7139,13 @@ function App() {
       {/* NAVBAR */}
       <nav className="navbar glass">
         <div className="container nav-content">
-          <div className="logo-section" onClick={() => { setCurrentPage('home'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+          <div 
+            className="logo-section" 
+            onClick={() => { setCurrentPage('home'); window.scrollTo(0, 0); }} 
+            style={{ cursor: 'pointer' }}
+            role="img"
+            aria-label="Z01 app logo — book studios, cameras and crew"
+          >
             <div className="logo-icon">
               <Sparkles className="logo-spark" size={18} />
             </div>
@@ -6154,15 +7246,19 @@ function App() {
 
                 {/* DOWNLOAD BUTTONS */}
                 <div className="download-buttons">
-                  <a href="#app-store" className="store-btn">
-                    <span className="store-icon"></span>
+                  <a href="#app-store" className="store-btn" aria-label="Download Z01 on the App Store">
+                    <img 
+                      src="/appstore.webp" 
+                      alt="App Store logo" 
+                      style={{ width: '24px', height: '24px', objectFit: 'contain', marginRight: '10px' }} 
+                    />
                     <div className="store-btn-text">
                       <span className="sub">Download on the</span>
                       <span className="main">App Store</span>
                     </div>
                   </a>
 
-                  <a href="#play-store" className="store-btn">
+                  <a href="#play-store" className="store-btn" aria-label="Get Z01 on Google Play">
                     <span className="store-icon">▶</span>
                     <div className="store-btn-text">
                       <span className="sub">GET IT ON</span>
@@ -6172,14 +7268,18 @@ function App() {
                 </div>
 
                 <p className="hero-subtext">
-                  Available on iOS and Android. Rated 4.9/5 by 10k+ creators.
+                  Available on iOS and Android. <span className="stars-row-success" role="img" aria-label="4.9 out of 5 rating from Z01 users">★★★★★</span> Rated 4.9/5 by 10k+ creators.
                 </p>
               </div>
 
-              <div className="hero-graphic-content">
+              <div 
+                className="hero-graphic-content"
+                role="img"
+                aria-label="Z01 marketplace app showing studio bookings, equipment rental, and crew listings"
+              >
                 <div className="hero-right-card-wrap">
                   {/* TOP RIGHT BADGE */}
-                  <div className="hero-vendors-badge">
+                  <div className="hero-vendors-badge" role="img" aria-label="500+ verified vendors on Z01">
                     <span className="vendors-badge-icon">🛡️</span>
                     <span className="vendors-badge-text">500+ Verified Vendors</span>
                   </div>
@@ -6356,9 +7456,22 @@ function App() {
                 </div>
               </div>
 
-              <div className="category-card equipment-cat glass">
+              <div 
+                className="category-card equipment-cat glass"
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  setCurrentPage('booking');
+                  setActiveBookingTab('equipment');
+                  window.scrollTo(0, 0);
+                }}
+              >
                 <div className="cat-overlay"></div>
-                <div className="cat-bg-img" style={{ backgroundImage: `url('/cinema_camera.png')` }}></div>
+                <div 
+                  className="cat-bg-img" 
+                  style={{ backgroundImage: `url('/cinema_camera.png')` }}
+                  role="img"
+                  aria-label="Camera equipment rental category on Z01"
+                ></div>
                 <div className="cat-content">
                   <span className="cat-badge">Pro Gear</span>
                   <h3>Equipment Rentals</h3>
@@ -6406,7 +7519,15 @@ function App() {
                 <h2 className="section-title">Featured <span className="text-gradient">Studios</span></h2>
                 <p className="section-subtitle">Top-rated studios recommended for your production.</p>
               </div>
-              <div className="header-actions">
+              <div className="header-actions" style={{ display: 'flex', alignItems: 'center' }}>
+                <button 
+                  className="btn-filter-icon glass" 
+                  style={{ marginRight: '12px', padding: '0.65rem', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', cursor: 'pointer' }}
+                  aria-label="Filter studios by type, location and price"
+                  title="Filter studios by type, location and price"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                </button>
                 <input
                   type="text"
                   placeholder="Search by area..."
@@ -6422,8 +7543,14 @@ function App() {
               {filteredStudios.map(studio => (
                 <div className="studio-card glass" key={studio.id}>
                   <div className="studio-img-wrapper">
-                    <img src={studio.image} alt={studio.title} className="studio-img" />
-                    <span className="studio-tag">{studio.tag}</span>
+                    <img src={studio.image} alt={`${studio.title} photography studio interior in Chennai`} className="studio-img" />
+                    <span 
+                      className="studio-tag"
+                      role={studio.tag === 'Instant Book' ? 'img' : undefined}
+                      aria-label={studio.tag === 'Instant Book' ? 'Studio available for booking today' : undefined}
+                    >
+                      {studio.tag}
+                    </span>
                     <span className="studio-rating-badge">
                       <Star size={12} fill="currentColor" /> {studio.rating}
                     </span>
@@ -6473,7 +7600,7 @@ function App() {
               {equipment.map(item => (
                 <div className="equipment-card glass" key={item.id}>
                   <div className="eq-img-wrapper">
-                    <img src={item.image} alt={item.title} className="eq-img" />
+                    <img src={item.image} alt={`${item.title} available for rent on Z01`} className="eq-img" />
                     <span className="eq-tag">{item.tag}</span>
                   </div>
                   <div className="eq-info">
@@ -6483,7 +7610,16 @@ function App() {
                       <div className="eq-price">
                         <span className="price">{item.price}</span>
                       </div>
-                      <button className="btn-rent">Rent Now</button>
+                      <button 
+                        className="btn-rent"
+                        onClick={() => {
+                          setCurrentPage('booking');
+                          setActiveBookingTab('equipment');
+                          window.scrollTo(0, 0);
+                        }}
+                      >
+                        Rent Now
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -6699,7 +7835,13 @@ function App() {
                 <div className="cal-availability-box glass">
                   <div className="cal-availability-header">
                     <h4>Studio Availability</h4>
-                    <span className="cal-availability-live"><span className="cal-live-pulse-dot"></span> Live</span>
+                    <span 
+                      className="cal-availability-live"
+                      role="img"
+                      aria-label="Studio available for booking today"
+                    >
+                      <span className="cal-live-pulse-dot"></span> Live
+                    </span>
                   </div>
                   <div className="cal-availability-grid">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((d) => (
@@ -6942,13 +8084,19 @@ function App() {
           <div className="booking-subnav glass booking-subnav-floating">
             <button
               className={`subnav-btn ${activeBookingTab === 'studios' ? 'active' : ''}`}
-              onClick={() => setActiveBookingTab('studios')}
+              onClick={() => {
+                setActiveBookingTab('studios');
+                window.location.hash = 'booking';
+              }}
             >
               Studios
             </button>
             <button
               className={`subnav-btn ${activeBookingTab === 'equipment' ? 'active' : ''}`}
-              onClick={() => setActiveBookingTab('equipment')}
+              onClick={() => {
+                setActiveBookingTab('equipment');
+                window.location.hash = 'equipment';
+              }}
             >
               Equipment
             </button>
@@ -7123,11 +8271,47 @@ function App() {
       {/* HOW IT WORKS VIEW */}
       {currentPage === 'how-it-works' && renderHowItWorksPage()}
 
+      {/* ABOUT US VIEW */}
+      {currentPage === 'about' && renderAboutPage()}
+
+      {/* CONTACT US VIEW */}
+      {currentPage === 'contact' && renderContactPage()}
+
+      {/* VENDOR PORTAL VIEW */}
+      {currentPage === 'vendor-portal' && renderVendorPortalPage()}
+
+      {/* TERMS OF SERVICE VIEW */}
+      {currentPage === 'terms' && renderPolicyPage('terms')}
+
+      {/* PRIVACY POLICY VIEW */}
+      {currentPage === 'privacy' && renderPolicyPage('privacy')}
+
+      {/* COOKIE POLICY VIEW */}
+      {currentPage === 'cookies' && renderPolicyPage('cookies')}
+
+      {/* CAREERS VIEW */}
+      {currentPage === 'careers' && renderCareersPage()}
+
+      {/* SITEMAP VIEW */}
+      {currentPage === 'sitemap' && renderSitemapPage()}
+
+      {/* PRESS KIT VIEW */}
+      {currentPage === 'press' && renderPressPage()}
+
+      {/* LIST YOUR STUDIO VIEW */}
+      {currentPage === 'list-your-studio' && renderListYourStudioPage()}
+
       {/* FOOTER */}
       <footer className="footer">
         <div className="container footer-grid">
           <div className="footer-brand-col">
-            <div className="logo-section" onClick={() => { setCurrentPage('home'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+            <div 
+              className="logo-section" 
+              onClick={() => { setCurrentPage('home'); window.scrollTo(0, 0); }} 
+              style={{ cursor: 'pointer' }}
+              role="img"
+              aria-label="Z01 app logo — book studios, cameras and crew"
+            >
               <div className="logo-icon">
                 <Sparkles className="logo-spark" size={16} />
               </div>
@@ -7155,30 +8339,33 @@ function App() {
           <div className="footer-links-col">
             <h4>Company</h4>
             <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#careers">Careers</a></li>
-              <li><a href="#blog">Blog</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about" onClick={(e) => { e.preventDefault(); setCurrentPage('about'); window.scrollTo(0,0); }}>About Us</a></li>
+              <li><a href="#careers" onClick={(e) => { e.preventDefault(); setCurrentPage('careers'); window.scrollTo(0,0); }}>Careers</a></li>
+              <li><a href="#blog" onClick={(e) => { e.preventDefault(); setCurrentPage('blog'); window.scrollTo(0,0); }}>Blog</a></li>
+              <li><a href="#contact" onClick={(e) => { e.preventDefault(); setCurrentPage('contact'); window.scrollTo(0,0); }}>Contact</a></li>
+              <li><a href="#press" onClick={(e) => { e.preventDefault(); setCurrentPage('press'); window.scrollTo(0,0); }}>Press Kit</a></li>
             </ul>
           </div>
 
           <div className="footer-links-col">
             <h4>Services</h4>
             <ul>
-              <li><a href="#studios">Studios</a></li>
-              <li><a href="#equipment">Gear Renting</a></li>
-              <li><a href="#crew">Crew Hiring</a></li>
-              <li><a href="#spaces">Spaces</a></li>
+              <li><a href="#studios" onClick={(e) => { e.preventDefault(); setCurrentPage('booking'); setActiveBookingTab('studios'); window.scrollTo(0,0); }}>Studios</a></li>
+              <li><a href="#equipment" onClick={(e) => { e.preventDefault(); setCurrentPage('booking'); setActiveBookingTab('equipment'); setSelectedEqCategory('All'); window.scrollTo(0,0); }}>Gear Renting</a></li>
+              <li><a href="#crew" onClick={(e) => { e.preventDefault(); setCurrentPage('crew'); window.scrollTo(0,0); }}>Crew Hiring</a></li>
+              <li><a href="#list-your-studio" onClick={(e) => { e.preventDefault(); setCurrentPage('list-your-studio'); window.scrollTo(0,0); }}>List Your Studio</a></li>
             </ul>
           </div>
 
           <div className="footer-links-col">
             <h4>Support</h4>
             <ul>
-              <li><a href="#help">Help Center</a></li>
+              <li><a href="#help" onClick={(e) => { e.preventDefault(); setCurrentPage('help'); window.scrollTo(0,0); }}>Help Center</a></li>
               <li><a href="#safety">Safety Trust</a></li>
-              <li><a href="#terms">Terms of Service</a></li>
-              <li><a href="#privacy">Privacy Policy</a></li>
+              <li><a href="#terms" onClick={(e) => { e.preventDefault(); setCurrentPage('terms'); window.scrollTo(0,0); }}>Terms of Service</a></li>
+              <li><a href="#privacy" onClick={(e) => { e.preventDefault(); setCurrentPage('privacy'); window.scrollTo(0,0); }}>Privacy Policy</a></li>
+              <li><a href="#cookies" onClick={(e) => { e.preventDefault(); setCurrentPage('cookies'); window.scrollTo(0,0); }}>Cookie Policy</a></li>
+              <li><a href="#sitemap" onClick={(e) => { e.preventDefault(); setCurrentPage('sitemap'); window.scrollTo(0,0); }}>Sitemap</a></li>
             </ul>
           </div>
         </div>
